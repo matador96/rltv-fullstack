@@ -1,0 +1,108 @@
+@import "~antd/dist/antd.css";
+
+// $backgroundColorFirst: #222222;
+// $colorFirst: #78f7a8;
+
+$backgroundColorFirst: #0c0d16;
+$colorFirst: #fde82b;
+
+body {
+  background: $backgroundColorFirst;
+}
+
+.app.night {
+  max-width: 1200px;
+  margin: auto;
+
+  .navbarsecond {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+
+    div {
+      margin: 0 34px;
+      padding: 0 10px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+
+      span {
+        margin: 0 9px;
+      }
+    }
+  }
+
+  .navbar {
+    border-bottom: 1px solid $colorFirst;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+
+    &_logo {
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      line-height: 0.9;
+      font-size: 30px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 24px 15px;
+      background: linear-gradient(
+        #0c0d16,
+        #0c0d16,
+        #0c0d16,
+        #fde82b2b,
+        #fde82b9c
+      );
+    }
+    &_lang {
+      position: absolute;
+      right: 35px;
+      a {
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+    .ant-menu-light {
+      background: transparent;
+      border-bottom: 0;
+      padding: 30px 20px;
+      margin: 0px -10px;
+      width: 450px;
+      .ant-menu-title-content {
+        color: #4f5058;
+        font-weight: 500;
+      }
+
+      .ant-menu-item {
+        &::after {
+          content: "";
+          border-bottom: 4px solid transparent;
+          width: 0px;
+          transition: 0.3s all;
+        }
+        &:hover::after {
+          border-bottom: 4px solid $colorFirst;
+          width: 20px;
+        }
+      }
+
+      .ant-menu-item-selected {
+        &::after {
+          border-bottom: 4px solid $colorFirst;
+          width: 20px;
+        }
+
+        .ant-menu-title-content {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
