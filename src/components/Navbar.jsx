@@ -1,6 +1,14 @@
 import { Menu, Dropdown } from "antd";
 import React from "react";
-import { DownOutlined } from "@ant-design/icons";
+import {
+  FundProjectionScreenOutlined,
+  HomeOutlined,
+  ProjectOutlined,
+  QuestionCircleOutlined,
+  HeartOutlined,
+  UnorderedListOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const langmenu = (
   <Menu>
@@ -27,9 +35,15 @@ class Navbar extends React.Component {
           selectedKeys={[current]}
           mode="horizontal"
         >
-          <Menu.Item key="home">Home</Menu.Item>
-          <Menu.Item key="leader">Leaderboards</Menu.Item>
-          <Menu.Item key="help">Help</Menu.Item>
+          <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item key="leader" icon={<ProjectOutlined />}>
+            <Link to="/leaderboards">Leaderboards</Link>
+          </Menu.Item>
+          <Menu.Item key="favorites" icon={<HeartOutlined />}>
+            <Link to="/favorites">Favorites</Link>
+          </Menu.Item>
         </Menu>
 
         <div className="navbar_logo">
@@ -41,12 +55,18 @@ class Navbar extends React.Component {
           selectedKeys={[current]}
           mode="horizontal"
         >
-          <Menu.Item key="favorites">Favorites</Menu.Item>
-          <Menu.Item key="distribution">Distribution</Menu.Item>
-          <Menu.Item key="overlay">OBS overlay</Menu.Item>
+          {/*<Menu.Item key="distribution" icon={<UnorderedListOutlined />}>
+            Distribution
+          </Menu.Item>*/}
+          <Menu.Item key="overlay" icon={<FundProjectionScreenOutlined />}>
+            <Link to="/obs">OBS overlay</Link>
+          </Menu.Item>
+          <Menu.Item key="help" icon={<QuestionCircleOutlined />}>
+            <Link to="/help">Help</Link>
+          </Menu.Item>
         </Menu>
 
-        <div className="navbar_lang">
+        {/*<div className="navbar_lang">
           <Dropdown overlay={langmenu} trigger={["click"]}>
             <a
               className="ant-dropdown-link"
@@ -56,7 +76,7 @@ class Navbar extends React.Component {
               EN <DownOutlined />
             </a>
           </Dropdown>
-        </div>
+    </div>*/}
       </div>
     );
   }

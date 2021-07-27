@@ -9,7 +9,7 @@ const getMainPage = (props) => {
 };
 
 const ErrorPage = (props) => (
-  <div className="errorpage">
+  <div className="content errorpage">
     <Button type="primary" onClick={() => getMainPage(props)}>
       Вернутся на главную
     </Button>
