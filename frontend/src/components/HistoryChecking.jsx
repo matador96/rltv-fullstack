@@ -1,4 +1,5 @@
 import React from "react";
+import { MailOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import { getIconComponentPlatfrom } from "./../helpers/other";

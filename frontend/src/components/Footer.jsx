@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { translate } from "react-switch-lang";
 import { Menu } from "antd";
+import { useLocation, Switch } from "react-router-dom";
 import { withRouter } from "react-router";
 
 const componentRoutes = [
@@ -74,7 +75,6 @@ class Footer extends React.Component {
               href="mailto:atubrah@mail.ru"
               title="Mail Matador"
               target="_blank"
-              rel="noreferrer"
             >
               <MailOutlined /> {t("other.words.contactMe")}
             </a>
