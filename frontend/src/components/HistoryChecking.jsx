@@ -3,6 +3,7 @@ import { MailOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import { getIconComponentPlatfrom } from "./../helpers/other";
+import { translate } from "react-switch-lang";
 
 const history = [
   {
@@ -61,19 +62,20 @@ class HistoryChecking extends React.Component {
       return;
     }
 
+    const { t } = this.props;
     return (
-      <Fade delay={500}>
-        <div className="titlehistory">Searching History</div>
+      <Fade delay={300}>
+        <div className="titlehistory">{t("pages.main.searchingHistory")}</div>
         <div className="historycheck">
           {history.map((player, index) => (
             <>
               {index < 5 && (
-                <Link to="/" className="historycheck_block">
+                <Link to="/player" className="historycheck_block">
                   <div className="historycheck_block-left">
                     <img alt={player.nickname} src={player.avatar} />
                     <div className="nickname">
                       {player.nickname}
-                      <span>View Stats</span>
+                      <span>{t("other.words.viewStats")}</span>
                     </div>
                   </div>
 
@@ -81,7 +83,7 @@ class HistoryChecking extends React.Component {
                     {getIconComponentPlatfrom(player.platform)}
                   </div>
                   <div className="historycheck_block-mmr">
-                    Rating
+                    {t("other.words.rating")}
                     <span>{player.averageMmr.toLocaleString()}</span>
                   </div>
                 </Link>
@@ -94,4 +96,4 @@ class HistoryChecking extends React.Component {
   }
 }
 
-export default HistoryChecking;
+export default translate(HistoryChecking);
