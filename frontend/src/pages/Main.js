@@ -9,6 +9,7 @@ import SteamIcon from "../components/icons/SteamIcon";
 import XboxIcon from "../components/icons/XboxIcon";
 import Fade from 'react-reveal/Fade';
 import HistoryChecking from "../components/HistoryChecking";
+import { translate } from "react-switch-lang";
 const { Option } = Select;
 
 //addonBefore={prefixSelector}
@@ -34,16 +35,17 @@ const Main = (props) => {
     }
     return false;
   }
+  const { t } = props;
 
   return (
     <div className="content mainpage">
       <Row style={{ justifyContent: "center" }}>
         <Col span={12}>
           <div className="mainpage_left">
-          <Fade>
             <div className="mainpage_left__text">
-              ROCKET LEAGUE STATS
-              <span>Check Detailed Rocket League Stats and Leaderboards</span>
+            {t("pages.main.title")}
+              <span>
+              {t("pages.main.subtitle")}</span>
             </div>
 
             <div className="chooser">
@@ -81,18 +83,17 @@ const Main = (props) => {
               <Input size="large" placeholder={placeholder} />
             </div>
 
-          </Fade>
 
             <div className="mainpage_left__stats">
             <Fade delay="100">
               <div className="mainpage_left__stats___seasonend">
                 <FieldTimeOutlined />
                 <div>
-                  Season 3
+                {t("other.words.season")}{" "}3
                   <span>
-                    Ends In:{" "}
+                  {t("other.words.endsIn")}:{" "}
                     <span>
-                      in <CountUp end={14} /> days
+                    {t("other.words.leftDays", { days: 14 })} 
                     </span>
                   </span>
                 </div>      
@@ -102,9 +103,9 @@ const Main = (props) => {
                 <div className="mainpage_left__stats___playeronline">
                   <TeamOutlined />
                   <div>
-                    Last Hour
+                  {t("other.words.lastHour")} 
                     <span>
-                      Players Online <span></span>
+                    {t("other.words.playersOnline")}{" "}
                       <CountUp separator="," end={213989} />
                     </span>
                   </div>
@@ -121,4 +122,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default translate(Main);

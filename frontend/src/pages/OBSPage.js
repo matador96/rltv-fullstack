@@ -1,8 +1,9 @@
 import React from "react";
+import Nightbot from "../components/obs/Nightbot";
 
 const OBSPage = (props) => (
   <div className="content obspage">
-    OBSpage
+    <Nightbot/>
   </div>
 );
 

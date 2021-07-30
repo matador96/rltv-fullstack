@@ -1,9 +1,14 @@
 import React from "react";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
+import { translate } from "react-switch-lang";
 
 const getTitle = (text) => {
   text = text.replace("Matches", "");
   return text.replace("Ranked ", "");
+};
+
+const getDivision = (text) => {
+  return text.replace("Division", "");
 };
 
 const getWinStreakText = (text) => {
@@ -25,16 +30,20 @@ class RankRow extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, t } = this.props;
     return (
       <div className="rankrow">
         <img
           src={data.stats.tier.metadata.iconUrl}
-          alt={data.stats.tier.metadata.name}
+          alt={t(
+            "pages.player.playlists." + getTitle(data.stats.tier.metadata.name)
+          )}
           className="rankrow_rankimg"
         />
         <div className="rankrow_name">
-          <span>{getTitle(data.metadata.name)}</span>
+          <span>
+            {t("pages.player.playlists." + getTitle(data.metadata.name))}
+          </span>
           <span>{data.stats.tier.metadata.name}</span>
         </div>
         <div className="rankrow_rating">
@@ -42,7 +51,8 @@ class RankRow extends React.Component {
             {data.stats.rating.value} <i>mmr</i>
           </span>
           <span>
-            World <i>#{data.stats.rating.rank}</i>
+            {t("pages.player.inTheworld")}{" "}
+            <i>#{data.stats.rating.rank}</i>
           </span>
         </div>
         <div className="rankrow_divchange">
@@ -66,7 +76,10 @@ class RankRow extends React.Component {
               }}
             />
           </span>
-          <span>{data.stats.division.metadata.name}</span>
+          <span>
+            {t("pages.player.division")}{" "}
+            {getDivision(data.stats.division.metadata.name)}
+          </span>
         </div>
         <div className="rankrow_matches">
           <span>{data.stats.matchesPlayed.value}</span>
@@ -83,4 +96,4 @@ class RankRow extends React.Component {
   }
 }
 
-export default RankRow;
+export default translate(RankRow);
