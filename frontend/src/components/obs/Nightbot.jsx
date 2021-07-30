@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Checkbox, Select, Row, Col, Input } from "antd";
+import { Layout, Checkbox, Select, Row, Col, Input, Button } from "antd";
 
 const { Option } = Select;
 const checkboxes = [
@@ -51,58 +51,58 @@ const checkboxes = [
   },
 ];
 function Nightbot() {
-  // const [data, setData] = useState({
-  //   status: 0,
-  //   message: "",
-  // });
+  const [data, setData] = useState({
+    status: 0,
+    message: "",
+  });
 
   const [checkedItems, setCheckedItems] = useState({ "1s": false });
   const [id, setId] = useState("");
   const [platform, setPlatform] = useState("s");
-  // const [url, setUrl] = useState("s");
-  // const [isLoading, setLoading] = useState(false);
+  const [url, setUrl] = useState("s");
+  const [isLoading, setLoading] = useState(false);
 
-  // const handleSubmit = () => {
-  //   setLoading(true);
-  //   setData({
-  //     status: 0,
-  //     message: "",
-  //   });
+  const handleSubmit = () => {
+    setLoading(true);
+    setData({
+      status: 0,
+      message: "",
+    });
 
-  //   const array_playstyles = [];
-  //   for (const [key, value] of Object.entries(checkedItems)) {
-  //     if (value) {
-  //       array_playstyles.push(`${key}`);
-  //     }
-  //   }
+    const array_playstyles = [];
+    for (const [key, value] of Object.entries(checkedItems)) {
+      if (value) {
+        array_playstyles.push(`${key}`);
+      }
+    }
 
-  //   const playstyles =
-  //     array_playstyles.length !== 0 ? array_playstyles.toString() : "all";
+    const playstyles =
+      array_playstyles.length !== 0 ? array_playstyles.toString() : "all";
 
-  //   const geturl =
-  //     "http://localhost:3002/loadrank/" +
-  //     platform +
-  //     "/" +
-  //     id +
-  //     "/" +
-  //     playstyles;
+    const geturl =
+      "http://localhost:3002/loadrank/" +
+      platform +
+      "/" +
+      id +
+      "/" +
+      playstyles;
 
-  //   // axios
-  //   //   .get(geturl + "/1")
-  //   //   .then(function (response) {
-  //   //     setData(response.data);
-  //   //     setUrl(geturl);
-  //   //     setLoading(false);
-  //   //   })
-  //   //   .catch(function (error) {
-  //   //     if (error) {
-  //   //       setData({
-  //   //         status: 0,
-  //   //         message: "An error occurred and the api is not responding." + error,
-  //   //       });
-  //   //     }
-  //   //   });
-  // };
+    // axios
+    //   .get(geturl + "/1")
+    //   .then(function (response) {
+    //     setData(response.data);
+    //     setUrl(geturl);
+    //     setLoading(false);
+    //   })
+    //   .catch(function (error) {
+    //     if (error) {
+    //       setData({
+    //         status: 0,
+    //         message: "An error occurred and the api is not responding." + error,
+    //       });
+    //     }
+    //   });
+  };
 
   const handleChange = (event) => {
     setCheckedItems({
@@ -168,26 +168,28 @@ function Nightbot() {
             </Col>
           </Row>
 
-          <div className="command-list">
-            <Row>
-              <Col xs={24}>
-                <div className="title-c">Nightbot command</div>
-                <Input
-                  placeholder="Nightbot command"
-                  value={"!addcom !rank $(urlfetch sss /0)"}
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={24}>
-                <div className="title-c">StreamElements command</div>
-                <Input
-                  placeholder="StreamElements command"
-                  value={"!command add !rank $(urlfetch ddd /0)"}
-                />
-              </Col>{" "}
-            </Row>
-          </div>
+          {data.status === 0 && (
+            <div className="command-list">
+              <Row>
+                <Col xs={24}>
+                  <div className="title-c">Nightbot command</div>
+                  <Input
+                    placeholder="Nightbot command"
+                    value={"!addcom !rank $(urlfetch " + url + "/0)"}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={24}>
+                  <div className="title-c">StreamElements command</div>
+                  <Input
+                    placeholder="StreamElements command"
+                    value={"!command add !rank $(urlfetch " + url + "/0)"}
+                  />
+                </Col>{" "}
+              </Row>
+            </div>
+          )}
         </Col>
       </Row>
     </>
