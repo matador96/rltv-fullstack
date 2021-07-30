@@ -1,5 +1,4 @@
 import React from "react";
-import RoadMap from "../components/RoadMap";
 
 const getList = () => {
   const arr = [];
@@ -9,7 +8,10 @@ const getList = () => {
         <div>
           <span>{index}</span>
           <span>
-            <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc87eee443bbb499709f15bcac40eaadc27473c5_full.jpg" />
+            <img
+              alt="matador"
+              src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc87eee443bbb499709f15bcac40eaadc27473c5_full.jpg"
+            />
           </span>
           <span>matador</span>
         </div>
