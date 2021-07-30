@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Menu, Dropdown, Badge } from "antd";
+import { Menu, Badge } from "antd";
 import { translate } from "react-switch-lang";
 import {
-  FundProjectionScreenOutlined,
   HomeOutlined,
   ProjectOutlined,
   QuestionCircleOutlined,

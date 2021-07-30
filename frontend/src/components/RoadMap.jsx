@@ -1,6 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
-import { Steps, Divider } from "antd";
+import { Steps } from "antd";
 
 const { Step } = Steps;
 
