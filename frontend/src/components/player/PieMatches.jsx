@@ -14,9 +14,18 @@ class PieMatches extends React.Component {
           type: "pie",
         },
         stroke: {
-          show: false,
+          show: true,
+          curve: "smooth",
+          lineCap: "butt",
+          colors: ["#000"],
+          width: 1,
+          dashArray: 0,
         },
-        colors: ["#1b95f1", "#ffa600", "#06c786", "#03c986", "#02c186"],
+        fill: {
+          opacity: 0.7,
+          type: "solid",
+        },
+        colors: ["#93d653", "#c890e9", "#5e68ca", "#ca5e5e", "#5eacca"],
         labels: ["1v1", "2v2", "3v3", "Tournament", "Unranked"],
         legend: {
           position: "bottom",

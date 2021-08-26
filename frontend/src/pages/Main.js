@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Row, Col, Input } from "antd";
-import { FieldTimeOutlined, TeamOutlined } from "@ant-design/icons";
+import {
+  FieldTimeOutlined,
+  TeamOutlined,
+  EnterOutlined,
+} from "@ant-design/icons";
 import CountUp from "react-countup";
 import EpicIcon from "../components/icons/EpicIcon";
 import NintendoIcon from "../components/icons/NintendoIcon";
@@ -10,10 +14,20 @@ import XboxIcon from "../components/icons/XboxIcon";
 import Fade from "react-reveal/Fade";
 import HistoryChecking from "../components/HistoryChecking";
 import { translate } from "react-switch-lang";
+import { withRouter } from "react-router";
+import { getPlayerSteamName } from "../api/all/player";
+import openNotification from "../components/Notification";
+import {
+  getLastHourOnline,
+  getSeason,
+  getLeftDaysEndSeason,
+} from "../helpers/other";
 
 const Main = (props) => {
   const [platform, setPlatform] = useState("steam");
-  const [placeholder, setPlaceholder] = useState("Enter name, id or url");
+  const [text, setText] = useState("");
+  const [exit, setExit] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Enter custom id or url");
 
   function isChecked(platformCheck) {
     if (platformCheck === platform) {
@@ -21,10 +35,45 @@ const Main = (props) => {
     }
     return false;
   }
+
+  async function handleClick() {
+    setExit(true);
+
+    let steamName;
+
+    if (text.search(/steamcommunity.com/) !== -1) {
+      steamName = await getPlayerSteamName(text).then(({ data }) => {
+        if (!data) {
+          steamName = null;
+        }
+        return data;
+      });
+    }
+
+    if (steamName === null) {
+      openNotification("error", "SteamId Error", "Такого аккаунта нет");
+      return;
+    }
+
+    let url;
+
+    if (steamName) {
+      url = "/player/" + platform + "/" + steamName;
+    } else {
+      url = "/player/" + platform + "/" + text;
+    }
+
+    setTimeout(() => {
+      props.history.push(url);
+    }, 600);
+  }
+
   const { t } = props;
 
+  const days = getLeftDaysEndSeason();
+
   return (
-    <div className="content mainpage">
+    <div className={exit ? "content mainpage exit" : "content mainpage"}>
       <Row style={{ justifyContent: "center" }}>
         <Col span={12}>
           <div className="mainpage_left">
@@ -63,18 +112,18 @@ const Main = (props) => {
                   <PlaystationIcon />
                 </div>
                 <div
-                  className={isChecked("xbox") && "active"}
+                  className={isChecked("xbl") && "active"}
                   onClick={() => {
-                    setPlatform("xbox");
+                    setPlatform("xbl");
                     setPlaceholder("Enter Xbox Live Username");
                   }}
                 >
                   <XboxIcon />
                 </div>
                 <div
-                  className={isChecked("nintendo") && "active"}
+                  className={isChecked("switch") && "active"}
                   onClick={() => {
-                    setPlatform("nintendo");
+                    setPlatform("switch");
                     setPlaceholder("Enter Nintendo Switch Username");
                   }}
                 >
@@ -82,7 +131,17 @@ const Main = (props) => {
                 </div>
               </div>
 
-              <Input size="large" placeholder={placeholder} />
+              <Input
+                size="large"
+                placeholder={placeholder}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onPressEnter={() => handleClick()}
+              />
+
+              <div className="enter-search" onClick={() => handleClick()}>
+                <EnterOutlined />
+              </div>
             </div>
 
             <div className="mainpage_left__stats">
@@ -90,10 +149,14 @@ const Main = (props) => {
                 <div className="mainpage_left__stats___seasonend">
                   <FieldTimeOutlined />
                   <div>
-                    {t("other.words.season")} 3
+                    {t("other.words.season")} {getSeason()}
                     <span>
                       {t("other.words.endsIn")}:{" "}
-                      <span>{t("other.words.leftDays", { days: 14 })}</span>
+                      <span>
+                        {t("other.words.leftDays", {
+                          days,
+                        })}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -105,7 +168,7 @@ const Main = (props) => {
                     {t("other.words.lastHour")}
                     <span>
                       {t("other.words.playersOnline")}{" "}
-                      <CountUp separator="," end={213989} />
+                      <CountUp separator="," end={getLastHourOnline()} />
                     </span>
                   </div>
                 </div>
@@ -120,4 +183,4 @@ const Main = (props) => {
   );
 };
 
-export default translate(Main);
+export default withRouter(translate(Main));

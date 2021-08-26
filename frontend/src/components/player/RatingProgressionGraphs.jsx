@@ -43,12 +43,9 @@ const getMinMaxYAxis = () => {
     arr = [...arr, ...element.data];
   }
 
-  console.log(arr);
-
   min = Math.min.apply(null, arr);
   max = Math.max.apply(null, arr);
 
-  console.log({ min: min - 20, max: max + 10 });
   return { min: min - 20, max: max + 10 };
 };
 

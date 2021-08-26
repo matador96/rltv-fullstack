@@ -35,9 +35,8 @@ class Footer extends React.Component {
 
   componentDidMount() {
     const url = window.location.pathname;
-    console.log(url);
+
     if (componentRoutes.includes(url)) {
-      console.log("входит?");
       this.setState({
         current: url.replace("/", ""),
       });
@@ -69,7 +68,7 @@ class Footer extends React.Component {
           {t("footer.text1")}
           <b style={{ marginLeft: "5px" }}>{t("footer.text2")}</b>
           <div className="copyright">
-            {t("footer.developed")} 🧡
+            {t("footer.developed")}.
             <a
               href="mailto:atubrah@mail.ru"
               title="Mail Matador"

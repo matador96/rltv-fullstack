@@ -1,6 +1,7 @@
 {
   "menu": {
     "main": "Главная",
+    "search": "Поиск",
     "leaderboards": "Топ игроков",
     "favorites": "Избранные",
     "obs": "OBS оверлей",
@@ -10,7 +11,7 @@
     "main": {
       "title": "Статистика по Rocket League",
       "subtitle": "Подробная статистика игроков всего мира",
-      "searchingHistory": "История поиска"
+      "searchingHistory": "История вашего поиска"
     },
     "player": {
       "seasonRewardLevel": "Сезоная награда",
@@ -62,7 +63,7 @@
       "leftDays": " через {days} дней",
       "lastHour": "За последний час",
       "playersOnline": "Игроков онлайн",
-      "viewStats": "Открыть статистику",
+      "viewStats": "Открыть профиль",
       "rating": "Рейтинг",
       "contactMe": "Связаться со мной",
       "aboutMe": "Обо мне"

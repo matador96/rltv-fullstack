@@ -24,7 +24,7 @@ const routes = [
     exact: true,
   },
   {
-    path: "/player",
+    path: "/player/:platform/:gameId",
     layout: PlayerPage,
     component: PlayerPage,
     exact: true,
@@ -72,6 +72,7 @@ const routes = [
     component: HelpPage,
     exact: true,
   },
+
   {
     path: "/aboutme",
     layout: AboutMePage,
