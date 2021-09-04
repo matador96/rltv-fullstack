@@ -1,8 +1,8 @@
 import React from "react";
 import "./view/style.scss";
+import "./view/responsive.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
 import CookieRule from "./components/CookieRule";
 import { getSiteConfigs } from "./api/all/other";
 import Closed from "./components/Closed";
@@ -63,7 +63,6 @@ class App extends React.Component {
       <div className={"app " + currentTheme}>
         <Navbar />
         <div className="content">{this.props.children}</div>
-        <AboutUs />
         <Footer />
         <CookieRule />
       </div>

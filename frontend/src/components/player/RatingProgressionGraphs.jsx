@@ -43,6 +43,31 @@ class RatingProgressionGraphs extends React.Component {
       show: false,
       series: series,
       options: {
+        responsive: [
+          {
+            breakpoint: 600,
+            options: {
+              chart: {
+                width: 400,
+              },
+            },
+          },
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 240,
+              },
+              xaxis: {
+                labels: {
+                  style: {
+                    fontSize: "12px",
+                  },
+                },
+              },
+            },
+          },
+        ],
         chart: {
           offsetX: 0,
           offsetY: 0,

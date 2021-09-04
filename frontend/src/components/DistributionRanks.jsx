@@ -18,6 +18,26 @@ class DistributionRanks extends React.Component {
         },
       ],
       options: {
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              dataLabels: {
+                show: false,
+                style: {
+                  fontSize: "10px",
+                },
+              },
+              xaxis: {
+                labels: {
+                  style: {
+                    fontSize: "7px",
+                  },
+                },
+              },
+            },
+          },
+        ],
         chart: {
           animations: {
             enabled: false,
@@ -71,6 +91,7 @@ class DistributionRanks extends React.Component {
             show: true,
             style: {
               colors: "#9697b0",
+              fontSize: "12px",
             },
           },
           axisTicks: {
