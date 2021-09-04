@@ -7,16 +7,6 @@
 }
 
 @font-face {
-  font-family: "Muller Bold";
-  src: url("./fonts/Muller-Bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Muller Regular";
-  src: url("./fonts/Muller-Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Bebas Neue Regular";
   src: url("./fonts/Bebas-Neue-Regular.ttf") format("truetype");
 }
@@ -29,11 +19,6 @@
 @font-face {
   font-family: "Roboto Bold";
   src: url("./fonts/Roboto-Bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Roboto Slab";
-  src: url("./fonts/Roboto-Slab.ttf") format("truetype");
 }
 
 .rltv-notification,
@@ -165,9 +150,6 @@ body {
 }
 
 .favoritespage {
-  max-width: 1060px;
-  margin: auto;
-
   &-avatarblock {
     display: flex;
     width: 60px;
@@ -180,7 +162,6 @@ body {
   }
 }
 .table-favorites {
-
   .ant-table-tbody > tr.ant-table-row-level-1:hover > td {
     background: unset;
     display: none !important;
@@ -979,23 +960,7 @@ body {
       }
     }
   }
-  .navbarsecond {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
 
-    div {
-      margin: 0 34px;
-      padding: 0 10px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-
-      span {
-        margin: 0 9px;
-      }
-    }
-  }
   .titlehistory {
     text-transform: uppercase;
     font-weight: 400;

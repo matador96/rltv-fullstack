@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { getRankDistribution } from "../api/all/other";
 import playlistIds from "../constant/playlistIds";
-// import tracked from "./../data/tracked";
+import { translate } from "react-switch-lang";
 
 class DistributionRanks extends React.Component {
   constructor(props) {
@@ -246,6 +246,7 @@ class DistributionRanks extends React.Component {
   renderPlaylists() {
     let arr = [];
     const { currentPlaylistId } = this.state;
+    const { t } = this.props;
 
     for (let key in playlistIds) {
       if (key === "Unranked" || key === "tiers") {
@@ -263,7 +264,7 @@ class DistributionRanks extends React.Component {
             this.updatePlaylistIds(playlistIds[key]);
           }}
         >
-          {key}
+          {t("playlistsV1." + key)}
         </div>
       );
     }
@@ -287,4 +288,4 @@ class DistributionRanks extends React.Component {
   }
 }
 
-export default DistributionRanks;
+export default translate(DistributionRanks);

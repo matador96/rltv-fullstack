@@ -213,10 +213,8 @@ class PlayerPage extends React.Component {
       previusSeasonData,
       loadPreviusRanks,
     } = this.state;
-    //  const { loading, isFav, updateData } = this.state;
-    const { platform, gameId } = this.props.match.params;
 
-    //const playerData = [player];
+    const { platform, gameId } = this.props.match.params;
 
     if (loading) {
       return (
@@ -242,7 +240,9 @@ class PlayerPage extends React.Component {
                   size="small"
                   onClick={() => this.enterLoading()}
                 >
-                  {updateData ? "Updating" : "Update"}
+                  {updateData
+                    ? t("other.words.updating")
+                    : t("other.words.update")}
                 </Button>
                 <Button
                   type="link"
@@ -260,7 +260,9 @@ class PlayerPage extends React.Component {
                     );
                   }}
                 >
-                  {isFav ? "UnFavorite" : "Favorite"}
+                  {isFav
+                    ? t("other.words.unFavorite")
+                    : t("other.words.favrorite")}
                 </Button>
 
                 {/*<Button

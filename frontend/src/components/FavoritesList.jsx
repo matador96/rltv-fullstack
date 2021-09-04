@@ -1,10 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-// import {
-//   getIconComponentPlatfrom,
-//   getPlatformAvatar,
-// } from "./../helpers/other";
 import { translate } from "react-switch-lang";
 import { cleanFavorites, getFavorites } from "../cookie/store";
 import { Button, Popconfirm } from "antd";
@@ -34,46 +29,6 @@ class FavoritesList extends React.Component {
     }
   }
 
-  // renderFavoritesList() {
-  //   const { favoritesList } = this.state;
-  //   const { t } = this.props;
-
-  //   const renderList = [];
-  //   //player.averageMmr.toLocaleString()
-  //   for (let key in favoritesList) {
-  //     let gameId = key;
-  //     let player = favoritesList[gameId];
-
-  //     if (!player.avatar) {
-  //       player.avatar = getPlatformAvatar(player.platform);
-  //     }
-
-  //     renderList.push(
-  //       <Link
-  //         to={"/player/" + player.platform + "/" + gameId}
-  //         className="historycheck_block"
-  //       >
-  //         <div className="historycheck_block-left">
-  //           <img alt={player.nickname} src={player.avatar} />
-  //           <div className="nickname">
-  //             {player.nickname}
-  //             <span>{t("other.words.viewStats")}</span>
-  //           </div>
-  //         </div>
-
-  //         <div className="historycheck_block-platform">
-  //           {getIconComponentPlatfrom(player.platform)}
-  //         </div>
-  //         <div className="historycheck_block-mmr">
-  //           {t("other.words.rating")}
-  //           <span>4800</span>
-  //         </div>
-  //       </Link>
-  //     );
-  //   }
-
-  //   return renderList.reverse();
-  // }
   async cleanList() {
     await cleanFavorites();
     this.setState({
@@ -91,7 +46,7 @@ class FavoritesList extends React.Component {
       );
     }
 
-    // const { t } = this.props;
+    const { t } = this.props;
     const text = "Are you sure to clean list?";
 
     return (
@@ -99,7 +54,7 @@ class FavoritesList extends React.Component {
         <div className="favorites-list">
           <div className="playerpage-buttons">
             <Button type="link" icon={<SyncOutlined />} size="small">
-              UPDATE RANKS
+              {t("other.words.updateRanks")}
             </Button>
 
             <Button
@@ -113,7 +68,7 @@ class FavoritesList extends React.Component {
                 })
               }
             >
-              Delete player
+              {t("other.words.deletePlayer")}
             </Button>
 
             <Popconfirm
@@ -125,7 +80,7 @@ class FavoritesList extends React.Component {
               className="rltv-pop"
             >
               <Button type="link" icon={<DeleteOutlined />} size="small">
-                CLEAN LIST
+                {t("other.words.cleanList")}
               </Button>
             </Popconfirm>
           </div>

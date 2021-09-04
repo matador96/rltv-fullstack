@@ -11,6 +11,7 @@ import {
 import en from "./en.json";
 import ru from "./ru.json";
 
+// Examples
 // {t("home.title")}
 // {t("home.title", null, "ru")}
 // {t("hello", { name: "World" })}

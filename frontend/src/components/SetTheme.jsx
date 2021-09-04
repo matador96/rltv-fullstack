@@ -6,7 +6,6 @@ import themes from "./../config/themes";
 class SetTheme extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentTheme: "brown",
     };

@@ -31,7 +31,7 @@ class HistoryChecking extends React.Component {
     const { t } = this.props;
 
     const renderList = [];
-    //player.averageMmr.toLocaleString()
+
     for (let key in historyList) {
       let gameId = key;
       let player = historyList[gameId];

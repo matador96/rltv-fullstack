@@ -1,14 +1,15 @@
 import React from "react";
 import DistributionRanks from "../components/DistributionRanks";
 import Fade from "react-reveal/Fade";
+import { translate } from "react-switch-lang";
 
-const DistributionPage = (props) => (
-  <div className="content distributionpage">
-    <h1 style={{ paddingBottom: 0 }}>Rating Distribution</h1>
+const DistributionPage = ({ t }) => (
+  <div className="distributionpage">
+    <h1 style={{ paddingBottom: 0 }}>{t("pages.distribution.title")}</h1>
     <Fade>
       <DistributionRanks />
     </Fade>
   </div>
 );
 
-export default DistributionPage;
+export default translate(DistributionPage);

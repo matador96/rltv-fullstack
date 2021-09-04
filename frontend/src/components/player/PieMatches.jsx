@@ -65,10 +65,11 @@ class PieMatches extends React.Component {
   }
 
   render() {
+    const { options, series } = this.state;
     return (
       <ReactApexChart
-        options={this.state.options}
-        series={this.state.series}
+        options={options}
+        series={series}
         type="pie"
         width={240}
         height={262}

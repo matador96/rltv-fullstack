@@ -53,7 +53,6 @@ const LeaderboardsPage = (props) => (
         <div className="leaderboard-block_list-items">{getList()}</div>
       </div>
     </div>
-    {/* <RoadMap/> */}
   </div>
 );
 

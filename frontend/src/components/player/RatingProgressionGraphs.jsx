@@ -13,27 +13,6 @@ const series = [
   },
 ];
 
-// const getMinMaxYAxis = () => {
-//   let min = 0,
-//     max = 0;
-
-//   if (!series) {
-//     return;
-//   }
-
-//   let arr = [];
-
-//   for (let key in Object.keys(series)) {
-//     let element = series[key];
-//     arr = [...arr, ...element.data];
-//   }
-
-//   min = Math.min.apply(null, arr);
-//   max = Math.max.apply(null, arr);
-
-//   return { min: min - 20, max: max + 10 };
-// };
-
 class RatingProgressionGraphs extends React.Component {
   constructor(props) {
     super(props);
@@ -131,8 +110,6 @@ class RatingProgressionGraphs extends React.Component {
           enabled: true,
         },
         yaxis: {
-          // min: getMinMaxYAxis().min,
-          // max: getMinMaxYAxis().max,
           labels: {
             show: false,
             style: {
@@ -248,8 +225,6 @@ class RatingProgressionGraphs extends React.Component {
     });
 
     if (rankHistory?.dates && rankHistory?.history) {
-      // const { options } = this.state;
-      // options.xaxis.categories = rankHistory.dates;
       let series;
 
       if (selectedMod === "comp") {

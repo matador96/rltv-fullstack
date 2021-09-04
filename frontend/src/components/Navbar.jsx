@@ -125,7 +125,7 @@ class Navbar extends React.Component {
             icon={<BarChartOutlined />}
             onClick={() => this.handleClickMenu("/distribution")}
           >
-            <Link to="/distribution">Distribution</Link>
+            <Link to="/distribution">{t("menu.distribution")}</Link>
           </Menu.Item>
         </Menu>
 
