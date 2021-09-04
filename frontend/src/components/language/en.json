@@ -1,6 +1,7 @@
 {
   "menu": {
     "main": "Main",
+    "search": "Search",
     "leaderboards": "Leaderboards",
     "favorites": "Favorites",
     "obs": "OBS overlay",
@@ -10,13 +11,15 @@
     "main": {
       "title": "Rocket League Stats",
       "subtitle": "Check Detailed Rocket League Stats and Leaderboards",
-      "searchingHistory": "Searching history"
+      "searchingHistory": "Your history",
+      "lastSearched": "Recent searched"
     },
     "player": {
       "seasonRewardLevel": "Season Reward Level",
       "mini": {
         "wins": "Wins",
         "saves": "Saves",
+        "goals": "Goals",
         "assists": "Assists",
         "mvps": "Mvps",
         "shots": "Shots",

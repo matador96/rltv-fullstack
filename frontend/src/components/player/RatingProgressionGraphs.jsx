@@ -1,64 +1,73 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import playlistIds from "../../constant/playlistIds";
+import { translate } from "react-switch-lang";
+import { Select } from "antd";
+
+const { Option } = Select;
 
 const series = [
   {
-    name: "Duel",
-    data: [
-      15, 11, 22, 13, 49, 11, 69, 91, 16, 15, 41, 33, 33, 49, 11, 69, 91, 56,
-    ],
-  },
-  {
-    name: "Doubles",
-    data: [
-      15, 41, 22, 33, 12, 11, 69, 91, 56, 15, 41, 22, 44, 49, 11, 69, 91, 56,
-    ],
-  },
-  {
-    name: "Standard",
-    data: [15, 41, 22, 3, 49, 11, 1, 91, 56, 15, 3, 22, 33, 49, 11, 69, 91, 56],
-  },
-  {
-    name: "Tournament",
-    data: [15, 41, 22, 33, 4, 11, 69, 91, 56, 15, 41, 22, 33, 5, 6, 12, 91, 56],
-  },
-  {
     name: "Unranked",
-    data: [15, 41, 22, 33, 4, 11, 69, 91, 56, 15, 41, 22, 33, 5, 6, 12, 91, 56],
+    data: [],
   },
 ];
 
-const getMinMaxYAxis = () => {
-  let min = 0,
-    max = 0;
+// const getMinMaxYAxis = () => {
+//   let min = 0,
+//     max = 0;
 
-  if (!series) {
-    return;
-  }
+//   if (!series) {
+//     return;
+//   }
 
-  let arr = [];
+//   let arr = [];
 
-  for (let key in Object.keys(series)) {
-    let element = series[key];
-    arr = [...arr, ...element.data];
-  }
+//   for (let key in Object.keys(series)) {
+//     let element = series[key];
+//     arr = [...arr, ...element.data];
+//   }
 
-  console.log(arr);
+//   min = Math.min.apply(null, arr);
+//   max = Math.max.apply(null, arr);
 
-  min = Math.min.apply(null, arr);
-  max = Math.max.apply(null, arr);
-
-  console.log({ min: min - 20, max: max + 10 });
-  return { min: min - 20, max: max + 10 };
-};
+//   return { min: min - 20, max: max + 10 };
+// };
 
 class RatingProgressionGraphs extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      selectedMod: "comp",
+      show: false,
       series: series,
       options: {
+        responsive: [
+          {
+            breakpoint: 600,
+            options: {
+              chart: {
+                width: 400,
+              },
+            },
+          },
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 240,
+              },
+              xaxis: {
+                labels: {
+                  style: {
+                    fontSize: "12px",
+                  },
+                },
+              },
+            },
+          },
+        ],
         chart: {
           offsetX: 0,
           offsetY: 0,
@@ -68,7 +77,6 @@ class RatingProgressionGraphs extends React.Component {
           zoom: {
             enabled: false,
           },
-
           toolbar: {
             show: true,
             tools: {
@@ -123,8 +131,8 @@ class RatingProgressionGraphs extends React.Component {
           enabled: true,
         },
         yaxis: {
-          min: getMinMaxYAxis().min,
-          max: getMinMaxYAxis().max,
+          // min: getMinMaxYAxis().min,
+          // max: getMinMaxYAxis().max,
           labels: {
             show: false,
             style: {
@@ -152,6 +160,7 @@ class RatingProgressionGraphs extends React.Component {
           tickPlacement: "on",
           labels: {
             style: {
+              fontSize: "10px",
               colors: "#9697b0",
             },
           },
@@ -188,18 +197,150 @@ class RatingProgressionGraphs extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { rankHistory } = this.props;
+
+    if (rankHistory?.dates && rankHistory?.history) {
+      const { options } = this.state;
+      options.xaxis.categories = rankHistory.dates;
+      const seriesCompetetive = [
+        {
+          name: "Duel",
+          data: rankHistory.history[playlistIds.Duel],
+        },
+        {
+          name: "Doubles",
+          data: rankHistory.history[playlistIds.Doubles],
+        },
+        {
+          name: "Standard",
+          data: rankHistory.history[playlistIds.Standard],
+        },
+        {
+          name: "Tournament",
+          data: rankHistory.history[playlistIds.Tournament],
+        },
+      ];
+
+      this.setState({
+        show: true,
+        options: options,
+        series: seriesCompetetive,
+      });
+    }
+  }
+
+  handleChange = (value) => {
+    this.setState(
+      {
+        selectedMod: value,
+      },
+      () => this.updateSeries()
+    );
+  };
+
+  updateSeries() {
+    const { rankHistory } = this.props;
+    const { selectedMod } = this.state;
+    this.setState({
+      show: false,
+      series: [],
+    });
+
+    if (rankHistory?.dates && rankHistory?.history) {
+      // const { options } = this.state;
+      // options.xaxis.categories = rankHistory.dates;
+      let series;
+
+      if (selectedMod === "comp") {
+        series = [
+          {
+            name: "Duel",
+            data: rankHistory.history[playlistIds.Duel],
+          },
+          {
+            name: "Doubles",
+            data: rankHistory.history[playlistIds.Doubles],
+          },
+          {
+            name: "Standard",
+            data: rankHistory.history[playlistIds.Standard],
+          },
+          {
+            name: "Tournament",
+            data: rankHistory.history[playlistIds.Tournament],
+          },
+        ];
+      } else if (selectedMod === "unranked") {
+        series = [
+          {
+            name: "Unranked",
+            data: rankHistory.history[playlistIds.Unranked],
+          },
+        ];
+      } else if (selectedMod === "extra") {
+        series = [
+          {
+            name: "Hoops",
+            data: rankHistory.history[playlistIds.Hoops],
+          },
+          {
+            name: "Snowday",
+            data: rankHistory.history[playlistIds.Snowday],
+          },
+          {
+            name: "Dropshot",
+            data: rankHistory.history[playlistIds.Dropshot],
+          },
+          {
+            name: "Rumble",
+            data: rankHistory.history[playlistIds.Rumble],
+          },
+        ];
+      }
+
+      this.setState({
+        show: true,
+        series: series,
+      });
+    }
+  }
+
   render() {
-    const { options, series } = this.state;
+    const { options, series, show, selectedMod } = this.state;
+    if (!show) {
+      return <></>;
+    }
+
+    const { t } = this.props;
+
     return (
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="line"
-        height={245}
-        width={480}
-      />
+      <>
+        <div className="third-row__left__title title-ratingprogressiongraphs">
+          {t("pages.player.ratingProgression")}
+          <Select
+            defaultValue="comp"
+            onChange={this.handleChange}
+            value={selectedMod}
+          >
+            <Option value="comp">Competetive</Option>
+            <Option value="extra">Extra Mods</Option>
+            <Option value="unranked">Unranked</Option>
+          </Select>
+        </div>
+
+        <div className="third-row__left__block ratingprogressiongraphs">
+          <ReactApexChart
+            options={options}
+            series={series}
+            type="line"
+            height={245}
+            width={480}
+          />
+        </div>
+      </>
     );
   }
 }
 
-export default RatingProgressionGraphs;
+export default translate(RatingProgressionGraphs);

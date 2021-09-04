@@ -1,0 +1,26 @@
+module.exports = {
+  PLATFORMS: ["psn", "xbl", "steam", "epic", "switch"],
+  timeLeftendOfSeason: 1637161200, // Unix
+  season: 4,
+  siteStatus: { closed: false, title: "HELP", text: "Why bro :(" },
+  seasons: [
+    { name: "Season 4 (18)", number: 18 },
+    { name: "Season S3 (17)", number: 17 },
+    { name: "Season S2 (16)", number: 16 },
+    { name: "Season S1 (15)", number: 15 },
+    { name: "Season 14", number: 14 },
+    { name: "Season 13", number: 13 },
+    { name: "Season 12", number: 12 },
+    { name: "Season 11", number: 11 },
+    { name: "Season 10", number: 10 },
+    { name: "Season 9", number: 9 },
+    { name: "Season 8", number: 8 },
+    { name: "Season 7", number: 7 },
+    { name: "Season 6", number: 6 },
+    { name: "Season 5", number: 5 },
+    { name: "Season 4", number: 4 },
+    { name: "Season 3", number: 3 },
+    { name: "Season 2", number: 2 },
+    { name: "Season 1", number: 1 },
+  ],
+};

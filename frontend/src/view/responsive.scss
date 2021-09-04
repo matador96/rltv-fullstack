@@ -1,0 +1,904 @@
+/*992 - 1199*/
+@media only screen and (min-width: 992px) and (max-width: 1199px),
+  (min-device-width: 992px) and (max-device-width: 1199px) {
+  .app {
+    .content {
+      padding: 10px;
+    }
+    .footer {
+      padding: 20px 15px;
+      .footer-menu {
+        width: 37%;
+        .ant-menu-light .ant-menu-item {
+          width: 84px;
+        }
+      }
+    }
+
+    .playerpage-buttons {
+      right: 0;
+      top: 10px;
+    }
+    .playerpage {
+      .first-row__left {
+        max-width: 380px;
+        &___profile___reward
+          .ant-progress-steps
+          .ant-progress-steps-outer
+          .ant-progress-steps-item {
+          width: 22px !important;
+          height: 6px !important;
+        }
+      }
+
+      .third-row {
+        &__left {
+          flex: 0 0 50%;
+          max-width: 50%;
+          &__block.ratingprogressiongraphs {
+            .apexcharts-canvas {
+              width: 440px;
+
+              > svg {
+                width: 440px;
+              }
+            }
+          }
+        }
+        &__right {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+      .first-row__left___profile___nickname {
+        width: 220px;
+      }
+    }
+  }
+}
+
+/*768 - 991*/
+@media only screen and (min-width: 768px) and (max-width: 991px),
+  (min-device-width: 768px) and (max-device-width: 991px) {
+  .app {
+    .content {
+      padding: 10px;
+    }
+
+    .navbar {
+      margin-top: 10px;
+      justify-content: left;
+      .ant-menu-light {
+        padding: 20px 10px;
+        margin: 0px -10px;
+      }
+      .navbar_logo {
+        top: 12px;
+        font-size: 22px;
+      }
+    }
+    table {
+      table-layout: auto;
+      max-width: 768px;
+      overflow-x: scroll;
+      display: block;
+    }
+
+    .mainpage {
+      & > .ant-row > .ant-col-15 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      &_left__text {
+        font-size: 31px;
+        span {
+          font-size: 17px;
+          line-height: 1;
+        }
+      }
+    }
+    .footer {
+      padding: 20px 15px;
+      margin: 20px 0;
+      flex-direction: column-reverse;
+      &-text {
+        width: 100%;
+        margin-top: 20px;
+      }
+      &-menu {
+        justify-content: center;
+        width: 100%;
+        .ant-menu-light .ant-menu-item {
+          width: 100px;
+        }
+      }
+    }
+
+    .playerpage-buttons {
+      right: 0;
+      top: 10px;
+    }
+    .playerpage {
+      .second-row__block {
+        min-width: 170px;
+      }
+
+      .apexcharts-canvas {
+        margin: auto !important;
+      }
+
+      .first-row__left {
+        max-width: 380px;
+        flex: 0 0 41.66666667%;
+        max-width: 41.66666667%;
+
+        &___profile {
+          padding-right: 20px;
+        }
+
+        &___platformicon {
+          border-radius: 10px;
+        }
+
+        &___avatar {
+          height: 50px;
+        }
+
+        &___profile___reward
+          .ant-progress-steps
+          .ant-progress-steps-outer
+          .ant-progress-steps-item {
+          width: 17px !important;
+          height: 8px !important;
+        }
+      }
+
+      .third-row {
+        flex-direction: column-reverse;
+        flex-flow: column-reverse;
+
+        &__left {
+          flex: 0 0 100%;
+          max-width: 100%;
+
+          &__block.piesavesshots {
+            justify-content: center;
+          }
+        }
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      .first-row__left___profile___nickname {
+        width: 150px;
+      }
+    }
+  }
+}
+
+/*600 - 767*/
+@media only screen and (min-width: 600px) and (max-width: 767px),
+  (min-device-width: 600px) and (max-device-width: 767px) {
+  .app {
+    overflow-x: hidden;
+
+    .content {
+      padding: 10px;
+      min-height: 60vh;
+      h1 {
+        font-size: 34px;
+        padding: 0px 20px;
+      }
+    }
+    .leaderboard-block_mods-item {
+      margin: 0 4px;
+    }
+
+    .navbar {
+      margin-top: 10px;
+      justify-content: left;
+      .right-menu {
+        margin-right: 30px !important;
+
+        li.ant-menu-item {
+          padding-left: 0;
+        }
+      }
+      .ant-menu-light {
+        padding: 20px 10px;
+        margin: 0px -10px;
+      }
+      .navbar_logo {
+        top: 12px;
+        font-size: 22px;
+      }
+    }
+    table {
+      table-layout: auto;
+      max-width: 768px;
+      overflow-x: scroll;
+      display: block;
+    }
+
+    .mainpage {
+      & > .ant-row > .ant-col-15 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      &_left {
+        &__stats___playeronline > div span,
+        &__stats___seasonend > div span {
+          font-size: 14px;
+          span {
+            font-size: 15px;
+          }
+        }
+        &__text {
+          font-size: 31px;
+          span {
+            font-size: 17px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+    .footer {
+      padding: 20px 15px;
+      margin: 20px 0;
+      flex-direction: column-reverse;
+      &-text {
+        width: 100%;
+        margin-top: 20px;
+      }
+      &-menu {
+        justify-content: center;
+        width: 100%;
+        .ant-menu-light .ant-menu-item {
+          width: 100px;
+        }
+      }
+    }
+
+    .playerpage-buttons {
+      right: 0;
+      top: 10px;
+    }
+    .playerpage {
+      .first-row {
+        justify-content: left;
+        flex-direction: column;
+
+        &__left___profile___reward
+          .ant-progress-steps
+          .ant-progress-steps-outer {
+          margin: 0 -3px;
+        }
+        margin: 40px 0 10px 0;
+
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        &__left {
+          max-width: 420px;
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+
+          &___profile {
+            padding-right: 20px;
+          }
+
+          &___profile___reward
+            .ant-progress-steps
+            .ant-progress-steps-outer
+            .ant-progress-steps-item {
+            width: 27px !important;
+            height: 8px !important;
+            margin: 0 3px;
+          }
+        }
+      }
+      .second-row {
+        justify-content: left;
+        margin: 0px -15px;
+        flex-flow: wrap;
+        &__block {
+          min-width: 187px;
+          margin: 10px 15px;
+        }
+      }
+
+      .apexcharts-canvas {
+        margin: auto !important;
+      }
+
+      .third-row {
+        flex-direction: column-reverse;
+        flex-flow: column-reverse;
+
+        &__left {
+          flex: 0 0 100%;
+          max-width: 100%;
+
+          &__block.piesavesshots {
+            justify-content: center;
+          }
+        }
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      .first-row__left___profile___nickname {
+        width: 220px;
+      }
+    }
+  }
+}
+
+/*480 - 599*/
+@media only screen and (min-width: 480px) and (max-width: 599px),
+  (min-device-width: 480px) and (max-device-width: 599px) {
+  .app {
+    overflow-x: hidden;
+
+    .content {
+      padding: 10px;
+      min-height: 60vh;
+      h1 {
+        font-size: 34px;
+        padding: 0px 20px;
+      }
+    }
+    .leaderboard-block_mods {
+      flex-wrap: wrap;
+      &-item {
+        margin: 4px;
+      }
+    }
+
+    .navbar {
+      margin-top: 30px;
+      justify-content: left;
+
+      .right-menu {
+        display: none;
+      }
+      .ant-menu-light {
+        padding: 0px 10px;
+        margin: 5px auto;
+        .ant-menu-item {
+          .ant-menu-title-content .ant-badge-count {
+            display: none;
+          }
+          padding: 3px 8px;
+          &:after {
+            display: none;
+          }
+          a {
+            font-size: 13px;
+          }
+        }
+      }
+
+      &_theme {
+        left: 50px;
+        top: -20px;
+      }
+      &_lang {
+        right: 30px;
+        top: -20px;
+      }
+
+      &_logo {
+        top: -8px;
+        font-size: 25px;
+      }
+    }
+    table {
+      table-layout: auto;
+      max-width: 768px;
+      overflow-x: scroll;
+      display: block;
+    }
+
+    .mainpage {
+      & > .ant-row > .ant-col-15 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .history-list > div {
+        margin: 0 10px;
+      }
+
+      .chooser {
+        margin-bottom: 20px;
+      }
+
+      .historycheck_block {
+        width: 220px;
+        &-platform svg {
+          opacity: 0;
+        }
+        &-left .nickname {
+          width: 80px;
+        }
+      }
+
+      &_left {
+        &__stats {
+          margin: 0 -15px;
+          svg {
+            font-size: 25px;
+          }
+          &___playeronline > div span,
+          &___seasonend > div span {
+            font-size: 14px;
+            span {
+              font-size: 15px;
+            }
+          }
+        }
+
+        &__text {
+          font-size: 22px;
+          line-height: 1;
+          margin: 10px 0px;
+          span {
+            margin-top: 9px;
+            font-size: 15px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+    .footer {
+      padding: 20px 15px 0 15px;
+      margin: 15px 0;
+      text-align: center;
+      flex-direction: column-reverse;
+      .copyright {
+        flex-direction: column;
+      }
+      &-text {
+        width: 100%;
+        margin-top: 20px;
+      }
+      &-menu {
+        justify-content: center;
+        width: 100%;
+        .ant-menu-light .ant-menu-item {
+          width: 100px;
+        }
+      }
+    }
+
+    .playerpage-buttons {
+      right: 0;
+      top: 10px;
+    }
+    .playerpage {
+      .first-row {
+        justify-content: left;
+        flex-direction: column;
+
+        &__left___profile___reward
+          .ant-progress-steps
+          .ant-progress-steps-outer {
+          margin: 0 -3px;
+        }
+        margin: 40px 0 10px 0;
+
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        &__left {
+          max-width: 420px;
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+
+          &___profile {
+            padding-right: 20px;
+          }
+
+          &___profile___reward
+            .ant-progress-steps
+            .ant-progress-steps-outer
+            .ant-progress-steps-item {
+            width: 27px !important;
+            height: 8px !important;
+            margin: 0 3px;
+          }
+        }
+      }
+      .second-row {
+        justify-content: left;
+        margin: 0px -15px;
+        flex-flow: wrap;
+        &__block {
+          min-width: 187px;
+          margin: 10px 15px;
+        }
+      }
+
+      .apexcharts-canvas {
+        margin: auto !important;
+      }
+
+      .third-row {
+        flex-direction: column-reverse;
+        flex-flow: column-reverse;
+
+        &__left {
+          flex: 0 0 100%;
+          max-width: 100%;
+
+          &__block.piesavesshots {
+            flex-direction: column-reverse;
+            justify-content: center;
+
+            & > div {
+              margin: 10px 0;
+            }
+          }
+        }
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      .first-row__left___profile___nickname {
+        width: 220px;
+      }
+    }
+  }
+}
+
+/*320 - 479*/
+@media only screen and (min-width: 320px) and (max-width: 479px),
+  (min-device-width: 320px) and (max-device-width: 479px) {
+  .app {
+    overflow-x: hidden;
+
+    .content {
+      padding: 10px;
+      min-height: 60vh;
+      h1 {
+        font-size: 34px;
+        padding: 0px 20px;
+      }
+    }
+    .leaderboard-block_mods {
+      flex-wrap: wrap;
+      &-item {
+        margin: 4px;
+      }
+    }
+
+    .navbar {
+      margin-top: 30px;
+      justify-content: left;
+
+      .right-menu {
+        display: none;
+      }
+      .ant-menu-light {
+        padding: 0px 10px;
+        margin: 5px auto;
+        .ant-menu-item {
+          .ant-menu-title-content .ant-badge-count {
+            display: none;
+          }
+          padding: 0 8px;
+          &:after {
+            display: none;
+          }
+          a {
+            font-size: 12px;
+          }
+        }
+      }
+
+      &_theme {
+        left: 50px;
+        top: -20px;
+      }
+      &_lang {
+        right: 15px;
+        top: -20px;
+      }
+
+      &_logo {
+        top: -8px;
+        font-size: 23px;
+      }
+    }
+    table {
+      table-layout: auto;
+      max-width: 768px;
+      overflow-x: scroll;
+      display: block;
+    }
+
+    .mainpage {
+      & > .ant-row > .ant-col-15 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .history-list {
+        flex-direction: column;
+
+        & > div {
+          margin: 0 10px;
+        }
+      }
+
+      .chooser {
+        padding: 30px 10px 0 10px;
+        margin-bottom: 10px;
+        .choose-platform {
+          top: 10px;
+        }
+        .enter-search {
+          right: 10px;
+          top: 30px;
+        }
+        input {
+          padding: 15px 35px 15px 15px;
+        }
+      }
+
+      .historycheck_block {
+        &-left .nickname {
+          width: 80px;
+        }
+      }
+
+      &_left {
+        &__stats {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          svg {
+            font-size: 25px;
+          }
+          &___playeronline,
+          &___seasonend {
+            margin: 10px !important;
+          }
+          &___playeronline > div span,
+          &___seasonend > div span {
+            font-size: 14px;
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+
+        &__text {
+          font-size: 17px;
+          line-height: 1;
+          margin: 10px 0px;
+          span {
+            margin-top: 9px;
+            font-size: 13px;
+            line-height: 0.6;
+          }
+        }
+      }
+    }
+
+    .aboutmepage-socials {
+      span {
+        margin-left: 0;
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .footer {
+      padding: 20px 15px 0 15px;
+      margin: 15px 0;
+      text-align: center;
+      flex-direction: column-reverse;
+      .copyright {
+        flex-direction: column;
+      }
+      &-text {
+        width: 100%;
+        margin-top: 20px;
+      }
+      &-menu {
+        justify-content: center;
+        width: 100%;
+        a {
+          width: 60px;
+          line-height: 1;
+          white-space: normal !important;
+        }
+        .ant-menu-light .ant-menu-item {
+          width: 60px;
+          padding: 0;
+          margin: 0 5px;
+        }
+      }
+    }
+
+    .playerpage-buttons {
+      right: 0;
+      top: 0px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 2px;
+      button {
+        margin: 2px 6px;
+      }
+    }
+    .playerpage {
+      .third-row__right__title,
+      .third-row__left__title {
+        display: flex;
+        flex-direction: column;
+
+        > div {
+          margin-top: 5px;
+        }
+      }
+      .first-row {
+        justify-content: left;
+        flex-direction: column;
+
+        &__left___profile___reward
+          .ant-progress-steps
+          .ant-progress-steps-outer {
+          margin: 0 -3px;
+        }
+        margin: 30px 0 10px 0;
+
+        &__left___profile___nickname {
+          font-size: 20px;
+          width: 180px;
+        }
+
+        &___profile___reward____title {
+          font-size: 12px;
+        }
+
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+          flex-wrap: wrap;
+
+          > div {
+            width: 33%;
+            margin: 8px 0;
+            > div {
+              font-size: 19px;
+            }
+            > span {
+              font-size: 15px;
+            }
+          }
+        }
+
+        &__left {
+          max-width: 420px;
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+
+          &___profile {
+            padding-right: 20px;
+          }
+          &___profile___reward____rankimg {
+            height: 45px;
+            right: 0;
+            top: -26px;
+          }
+
+          &___avatar {
+            height: 48px;
+          }
+          &___platformicon {
+            border-radius: 8px;
+            left: 12px;
+            bottom: 3px;
+            padding: 3px 4px;
+
+            svg {
+              height: 13px;
+            }
+          }
+
+          &___profile___reward
+            .ant-progress-steps
+            .ant-progress-steps-outer
+            .ant-progress-steps-item {
+            width: 17px !important;
+            height: 6px !important;
+            margin: 0 2px;
+          }
+        }
+      }
+      .second-row {
+        justify-content: left;
+        margin: 0px -15px;
+        flex-flow: wrap;
+        &__block {
+          width: 46%;
+          margin: 7px 5px;
+          flex: 0 0 46%;
+          max-width: 46%;
+          height: auto;
+          font-size: 14px;
+          > span {
+            font-size: 19px;
+          }
+        }
+      }
+
+      .apexcharts-canvas {
+        margin: auto !important;
+      }
+
+      .third-row {
+        flex-direction: column-reverse;
+        flex-flow: column-reverse;
+
+        &__right__rank .rankrow {
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          img {
+            display: block;
+            width: 18%;
+          }
+
+          &_name {
+            width: 72%;
+          }
+
+          &_rating {
+            width: 32%;
+            font-size: 10px;
+            span:first-child {
+              font-size: 12px;
+            }
+          }
+          &_divchange {
+            width: 32%;
+            font-size: 11px;
+          }
+          &_matches {
+            font-size: 11px;
+            width: 32%;
+          }
+        }
+
+        &__left {
+          flex: 0 0 100%;
+          max-width: 100%;
+
+          &__block.piesavesshots {
+            flex-direction: column-reverse;
+            justify-content: center;
+
+            & > div {
+              margin: 10px 0;
+            }
+          }
+        }
+        &__right {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
