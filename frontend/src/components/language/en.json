@@ -11,13 +11,15 @@
     "main": {
       "title": "Rocket League Stats",
       "subtitle": "Check Detailed Rocket League Stats and Leaderboards",
-      "searchingHistory": "Your searching history"
+      "searchingHistory": "Your history",
+      "lastSearched": "Recent searched"
     },
     "player": {
       "seasonRewardLevel": "Season Reward Level",
       "mini": {
         "wins": "Wins",
         "saves": "Saves",
+        "goals": "Goals",
         "assists": "Assists",
         "mvps": "Mvps",
         "shots": "Shots",

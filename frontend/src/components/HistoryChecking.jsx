@@ -44,6 +44,7 @@ class HistoryChecking extends React.Component {
         <Link
           to={"/player/" + player.platform + "/" + gameId}
           className="historycheck_block"
+          key={player.platform + gameId}
         >
           <div className="historycheck_block-left">
             <img alt={player.nickname} src={player.avatar} />
@@ -58,7 +59,7 @@ class HistoryChecking extends React.Component {
           </div>
           <div className="historycheck_block-mmr">
             {t("other.words.rating")}
-            <span>4800</span>
+            <span>{player.rating}</span>
           </div>
         </Link>
       );

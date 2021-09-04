@@ -6,6 +6,7 @@ import {
   SearchOutlined,
   QuestionCircleOutlined,
   HeartOutlined,
+  BarChartOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import SetLanguage from "./language/SetLanguage";
@@ -13,7 +14,13 @@ import { withRouter } from "react-router";
 import { getFavorites } from "../cookie/store";
 import SetTheme from "./SetTheme";
 
-const componentRoutes = ["/", "/leaderboards", "/favorites", "/help"];
+const componentRoutes = [
+  "/",
+  "/leaderboards",
+  "/favorites",
+  "/help",
+  "/distribution",
+];
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -113,6 +120,13 @@ class Navbar extends React.Component {
               <Link to="/favorites">{t("menu.favorites")}</Link>
             )}
           </Menu.Item>
+          <Menu.Item
+            key="distribution"
+            icon={<BarChartOutlined />}
+            onClick={() => this.handleClickMenu("/distribution")}
+          >
+            <Link to="/distribution">Distribution</Link>
+          </Menu.Item>
         </Menu>
 
         <div className="navbar_logo">
@@ -125,9 +139,7 @@ class Navbar extends React.Component {
           mode="horizontal"
           className="right-menu"
         >
-          {/*<Menu.Item key="distribution" icon={<UnorderedListOutlined />}>
-            Distribution
-          </Menu.Item>
+          {/*
           <Menu.Item key="overlay" icon={<FundProjectionScreenOutlined />}>
             <Link to="/obs">{t("menu.obs")}</Link>
           </Menu.Item>*/}

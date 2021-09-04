@@ -46,6 +46,16 @@ const getLastHourOnline = () => {
   }
 };
 
+const getTrackedPlayers = () => {
+  const configs = window.App.state.configs;
+  if (!configs) {
+    return 0;
+  }
+  if (configs.trackedPlayers) {
+    return configs.trackedPlayers;
+  }
+};
+
 const getSeason = () => {
   const configs = window.App.state.configs;
   if (!configs) {
@@ -56,6 +66,18 @@ const getSeason = () => {
     return configs.season;
   }
 };
+
+const getPreviusSeasonsList = () => {
+  const configs = window.App.state.configs;
+  if (!configs) {
+    return;
+  }
+
+  if (configs.seasons) {
+    return configs.seasons;
+  }
+};
+
 const getLeftDaysEndSeason = () => {
   const configs = window.App.state.configs;
   if (!configs) {
@@ -73,4 +95,6 @@ export {
   getLeftDaysEndSeason,
   getSeason,
   getLastHourOnline,
+  getTrackedPlayers,
+  getPreviusSeasonsList,
 };

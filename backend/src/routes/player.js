@@ -11,4 +11,9 @@ module.exports = (router) => {
     PlayerController.validate("getPlayerSteamName"),
     PlayerController.getPlayerSteamName
   );
+  router.post(
+    "/api/player/season",
+    PlayerController.validate("getPlayerPreviusSeason"),
+    PlayerController.getPlayerPreviusSeason
+  );
 };

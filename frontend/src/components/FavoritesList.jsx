@@ -1,20 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import {
-  getIconComponentPlatfrom,
-  getPlatformAvatar,
-} from "./../helpers/other";
+// import {
+//   getIconComponentPlatfrom,
+//   getPlatformAvatar,
+// } from "./../helpers/other";
 import { translate } from "react-switch-lang";
 import { cleanFavorites, getFavorites } from "../cookie/store";
 import { Button, Popconfirm } from "antd";
-import { SyncOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  SyncOutlined,
+  DeleteOutlined,
+  UserDeleteOutlined,
+} from "@ant-design/icons";
+import FavoritesTables from "./FavoritesTable";
 
 class FavoritesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       favoritesList: null,
+      deleteOn: false,
     };
   }
 
@@ -28,46 +34,46 @@ class FavoritesList extends React.Component {
     }
   }
 
-  renderFavoritesList() {
-    const { favoritesList } = this.state;
-    const { t } = this.props;
+  // renderFavoritesList() {
+  //   const { favoritesList } = this.state;
+  //   const { t } = this.props;
 
-    const renderList = [];
-    //player.averageMmr.toLocaleString()
-    for (let key in favoritesList) {
-      let gameId = key;
-      let player = favoritesList[gameId];
+  //   const renderList = [];
+  //   //player.averageMmr.toLocaleString()
+  //   for (let key in favoritesList) {
+  //     let gameId = key;
+  //     let player = favoritesList[gameId];
 
-      if (!player.avatar) {
-        player.avatar = getPlatformAvatar(player.platform);
-      }
+  //     if (!player.avatar) {
+  //       player.avatar = getPlatformAvatar(player.platform);
+  //     }
 
-      renderList.push(
-        <Link
-          to={"/player/" + player.platform + "/" + gameId}
-          className="historycheck_block"
-        >
-          <div className="historycheck_block-left">
-            <img alt={player.nickname} src={player.avatar} />
-            <div className="nickname">
-              {player.nickname}
-              <span>{t("other.words.viewStats")}</span>
-            </div>
-          </div>
+  //     renderList.push(
+  //       <Link
+  //         to={"/player/" + player.platform + "/" + gameId}
+  //         className="historycheck_block"
+  //       >
+  //         <div className="historycheck_block-left">
+  //           <img alt={player.nickname} src={player.avatar} />
+  //           <div className="nickname">
+  //             {player.nickname}
+  //             <span>{t("other.words.viewStats")}</span>
+  //           </div>
+  //         </div>
 
-          <div className="historycheck_block-platform">
-            {getIconComponentPlatfrom(player.platform)}
-          </div>
-          <div className="historycheck_block-mmr">
-            {t("other.words.rating")}
-            <span>4800</span>
-          </div>
-        </Link>
-      );
-    }
+  //         <div className="historycheck_block-platform">
+  //           {getIconComponentPlatfrom(player.platform)}
+  //         </div>
+  //         <div className="historycheck_block-mmr">
+  //           {t("other.words.rating")}
+  //           <span>4800</span>
+  //         </div>
+  //       </Link>
+  //     );
+  //   }
 
-    return renderList.reverse();
-  }
+  //   return renderList.reverse();
+  // }
   async cleanList() {
     await cleanFavorites();
     this.setState({
@@ -76,9 +82,13 @@ class FavoritesList extends React.Component {
     window.Navbar.updateFavCount();
   }
   render() {
-    const { favoritesList } = this.state;
+    const { favoritesList, deleteOn } = this.state;
     if (!favoritesList) {
-      return <></>;
+      return (
+        <div className="can-add-favoritelist">
+          You can add players to favorite list.
+        </div>
+      );
     }
 
     // const { t } = this.props;
@@ -90,6 +100,20 @@ class FavoritesList extends React.Component {
           <div className="playerpage-buttons">
             <Button type="link" icon={<SyncOutlined />} size="small">
               UPDATE RANKS
+            </Button>
+
+            <Button
+              type="link"
+              icon={<UserDeleteOutlined />}
+              size="small"
+              className={deleteOn ? "active" : ""}
+              onClick={() =>
+                this.setState({
+                  deleteOn: !deleteOn,
+                })
+              }
+            >
+              Delete player
             </Button>
 
             <Popconfirm
@@ -105,7 +129,8 @@ class FavoritesList extends React.Component {
               </Button>
             </Popconfirm>
           </div>
-          <div className="historycheck">{this.renderFavoritesList()}</div>
+
+          <FavoritesTables deleteMode={deleteOn} />
         </div>
       </Fade>
     );

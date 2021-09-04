@@ -25,8 +25,15 @@ class PieMatches extends React.Component {
           opacity: 0.7,
           type: "solid",
         },
-        colors: ["#93d653", "#c890e9", "#5e68ca", "#ca5e5e", "#5eacca"],
-        labels: ["1v1", "2v2", "3v3", "Tournament", "Unranked"],
+        colors: [
+          "#93d653",
+          "#c890e9",
+          "#5e68ca",
+          "#ca5e5e",
+          "#5eacca",
+          "#ffeb00",
+        ],
+        labels: ["1v1", "2v2", "3v3", "Tournament", "Unranked", "Extra Mods"],
         legend: {
           position: "bottom",
           fontSize: "11px",

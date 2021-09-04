@@ -18,3 +18,14 @@ export const getPlayerSteamName = (text) =>
     },
     true
   );
+
+export const getPlayerPreviusSeason = (platform, gameId, season) =>
+  post(
+    "/player/season",
+    {
+      platform,
+      gameId,
+      season,
+    },
+    true
+  );

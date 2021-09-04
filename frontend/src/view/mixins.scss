@@ -6,6 +6,30 @@
       }
     }
 
+    .ant-table-column-sorter-up.active,
+    .ant-table-column-sorter-down.active {
+      color: $colorFirst;
+    }
+
+    .title-ratingprogressiongraphs {
+      display: flex;
+      justify-content: space-between;
+
+      .ant-select-arrow {
+        color: $colorFirst;
+      }
+      .ant-select-selector {
+        border: 0 !important;
+        outline: none !important;
+        box-shadow: inset 0px 0px 2px #f8ccaf !important;
+
+        &:hover,
+        &:focus {
+          box-shadow: inset 0px 0px 2px #f8ccaf;
+        }
+      }
+    }
+
     .loader {
       @keyframes spin-#{$name} {
         0% {
@@ -28,6 +52,12 @@
       }
     }
 
+    .distributionpage .apexcharts-bar-area {
+      fill: $colorFirst;
+    }
+    .distributionpage .apexcharts-tooltip-marker {
+      background-color: $colorFirst !important;
+    }
     .roadmap {
       .ant-steps-item-finish
         .ant-steps-item-icon
@@ -98,7 +128,8 @@
       &-buttons {
         button {
           &:hover,
-          &.ant-btn-loading {
+          &.ant-btn-loading,
+          &.active {
             box-shadow: inset 0px 0px 2px $colorFirst;
           }
         }
@@ -118,6 +149,9 @@
       }
       .first-row {
         &__left {
+          &___platformicon {
+            background: $colorFirst;
+          }
           &___profile {
             &___reward {
               .ant-progress-steps {
@@ -232,7 +266,9 @@
       &_mods {
         &-item {
           border: 1px $colorFirst solid;
-          &:hover {
+          &:hover,
+          &.active {
+            font-weight: 400;
             background: $colorFirst;
             color: $backgroundColorFirst;
           }

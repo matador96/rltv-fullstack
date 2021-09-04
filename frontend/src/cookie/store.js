@@ -9,7 +9,13 @@ export const getHistory = async () => {
   }
 };
 
-export const addHistory = async (platform, gameId, nickname, avatar) => {
+export const addHistory = async (
+  platform,
+  gameId,
+  nickname,
+  avatar,
+  rating
+) => {
   try {
     let history = await getHistory();
 
@@ -25,7 +31,7 @@ export const addHistory = async (platform, gameId, nickname, avatar) => {
       delete history[ids[0]];
     }
 
-    history[gameId] = { avatar, platform, nickname };
+    history[gameId] = { avatar, platform, nickname, rating };
 
     return localStorage.setItem("history", JSON.stringify(history));
   } catch (e) {
@@ -46,7 +52,13 @@ export const getFavorites = async () => {
   }
 };
 
-export const setFavorites = async (platform, gameId, nickname, avatar) => {
+export const setFavorites = async (
+  platform,
+  gameId,
+  nickname,
+  avatar,
+  ranks
+) => {
   try {
     let favorites = await getFavorites();
 
@@ -60,16 +72,36 @@ export const setFavorites = async (platform, gameId, nickname, avatar) => {
 
     const obj = Object.keys(favorites);
 
-    if (obj.length > 9) {
+    if (obj.length > 14) {
       openNotification(
         "error",
         "Error",
-        "Cant add to list. Maximum 10 players"
+        "Cant add to list. Maximum 15 players"
       );
       return false;
     }
 
-    favorites[gameId] = { avatar, platform, nickname };
+    favorites[gameId] = { avatar, platform, nickname, ranks };
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    return true;
+  } catch (e) {
+    return null;
+  }
+};
+
+export const updateFavorite = async (
+  platform,
+  gameId,
+  nickname,
+  avatar,
+  ranks
+) => {
+  try {
+    let favorites = await getFavorites();
+
+    favorites = favorites || {};
+
+    favorites[gameId] = { avatar, platform, nickname, ranks };
     localStorage.setItem("favorites", JSON.stringify(favorites));
     return true;
   } catch (e) {
@@ -99,9 +131,15 @@ export const cleanFavorites = async () => {
   await localStorage.removeItem("favorites");
 };
 
-export const deleteFavorites = async (data) => {
+export const deleteFavorites = async (gameId) => {
   try {
-    // return localStorage.removeItem("favorites");
+    let favorites = await getFavorites();
+
+    favorites = favorites || {};
+
+    delete favorites[gameId];
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    return true;
   } catch (e) {
     return null;
   }

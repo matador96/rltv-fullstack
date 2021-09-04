@@ -1,4 +1,3 @@
-const player = require("./../testData/player");
 const parser = require("fast-xml-parser");
 
 function doRequest(url) {
@@ -18,7 +17,7 @@ module.exports.getPlayerSteamNameByUrl = async (url) => {
   try {
     const body = await doRequest(url + "/?xml=1");
     const jsonObj = parser.parse(body);
-    return jsonObj.profile.customURL;
+    return jsonObj.profile.customURL || jsonObj.profile.steamID64;
   } catch (e) {
     throw Error(e.message);
   }

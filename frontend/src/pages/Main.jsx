@@ -22,12 +22,15 @@ import {
   getSeason,
   getLeftDaysEndSeason,
 } from "../helpers/other";
+import LastSearcheds from "../components/LastSearcheds";
 
 const Main = (props) => {
   const [platform, setPlatform] = useState("steam");
   const [text, setText] = useState("");
   const [exit, setExit] = useState(false);
-  const [placeholder, setPlaceholder] = useState("Enter custom id or url");
+  const [placeholder, setPlaceholder] = useState(
+    "Enter steamId, custom id or url"
+  );
 
   function isChecked(platformCheck) {
     if (platformCheck === platform) {
@@ -75,7 +78,7 @@ const Main = (props) => {
   return (
     <div className={exit ? "content mainpage exit" : "content mainpage"}>
       <Row style={{ justifyContent: "center" }}>
-        <Col span={12}>
+        <Col span={15}>
           <div className="mainpage_left">
             <div className="mainpage_left__text">
               {t("pages.main.title")}
@@ -85,7 +88,7 @@ const Main = (props) => {
             <div className="chooser">
               <div className="choose-platform">
                 <div
-                  className={isChecked("steam") && "active"}
+                  className={isChecked("steam") ? "active" : ""}
                   onClick={() => {
                     setPlatform("steam");
                     setPlaceholder("Enter Steam name, ID or url");
@@ -94,7 +97,7 @@ const Main = (props) => {
                   <SteamIcon />
                 </div>
                 <div
-                  className={isChecked("epic") && "active"}
+                  className={isChecked("epic") ? "active" : ""}
                   onClick={() => {
                     setPlatform("epic");
                     setPlaceholder("Enter Epic Games Username");
@@ -103,7 +106,7 @@ const Main = (props) => {
                   <EpicIcon />
                 </div>
                 <div
-                  className={isChecked("psn") && "active"}
+                  className={isChecked("psn") ? "active" : ""}
                   onClick={() => {
                     setPlatform("psn");
                     setPlaceholder("Enter Playstation Network Username");
@@ -112,7 +115,7 @@ const Main = (props) => {
                   <PlaystationIcon />
                 </div>
                 <div
-                  className={isChecked("xbl") && "active"}
+                  className={isChecked("xbl") ? "active" : ""}
                   onClick={() => {
                     setPlatform("xbl");
                     setPlaceholder("Enter Xbox Live Username");
@@ -121,7 +124,7 @@ const Main = (props) => {
                   <XboxIcon />
                 </div>
                 <div
-                  className={isChecked("switch") && "active"}
+                  className={isChecked("switch") ? "active" : ""}
                   onClick={() => {
                     setPlatform("switch");
                     setPlaceholder("Enter Nintendo Switch Username");
@@ -145,7 +148,7 @@ const Main = (props) => {
             </div>
 
             <div className="mainpage_left__stats">
-              <Fade delay="100">
+              <Fade delay={100}>
                 <div className="mainpage_left__stats___seasonend">
                   <FieldTimeOutlined />
                   <div>
@@ -161,21 +164,39 @@ const Main = (props) => {
                   </div>
                 </div>
               </Fade>
-              <Fade delay="100">
+              <Fade delay={100}>
                 <div className="mainpage_left__stats___playeronline">
                   <TeamOutlined />
                   <div>
                     {t("other.words.lastHour")}
                     <span>
-                      {t("other.words.playersOnline")}{" "}
+                      {t("other.words.playersOnline")}:{" "}
                       <CountUp separator="," end={getLastHourOnline()} />
                     </span>
                   </div>
                 </div>
               </Fade>
+              {/*} <Fade delay="100">
+                <div className="mainpage_left__stats___playeronline">
+                <ReconciliationOutlined />
+                  <div>
+                    All time
+                    <span>
+                      Checked rank:
+                      <span> {getTrackedPlayers()}</span>
+                    </span>
+                  </div>
+                </div>
+                      </Fade>*/}
             </div>
-
-            <HistoryChecking />
+            <div className="history-list">
+              <div>
+                <HistoryChecking />
+              </div>
+              <div>
+                <LastSearcheds />
+              </div>
+            </div>
           </div>
         </Col>
       </Row>

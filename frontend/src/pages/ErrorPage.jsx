@@ -10,8 +10,10 @@ const getMainPage = (props) => {
 
 const ErrorPage = (props) => (
   <div className="content errorpage">
+    404 error
+    <div>This page doesn't exist.</div>
     <Button type="primary" onClick={() => getMainPage(props)}>
-      Вернутся на главную
+      To main
     </Button>
   </div>
 );
