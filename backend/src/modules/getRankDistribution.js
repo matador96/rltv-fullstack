@@ -10,10 +10,10 @@ function doRequest(url) {
     });
   });
 }
-// https://api.tracker.gg/api/v1/rocket-league/player-history/mmr/256433
+
 module.exports.getRankDistribution = async () => {
   try {
-    const url = "https://api.tracker.gg/api/v1/rocket-league/tracked-players";
+    const url = process.env.API_PLAYER_RANK_DISTRIBUTION;
     let body = await doRequest(url);
 
     const json = JSON.parse(body);
