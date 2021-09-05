@@ -79,13 +79,12 @@ class Footer extends React.Component {
             >
               <MailOutlined /> {t("other.words.contactMe")}
             </a>
-          </div>
-          <div style={{ marginTop: "2px" }}>
             <a
               href="https://discord.gg/2cQTcA2eVy"
               title="Discord Channel"
               target="_blank"
               rel="noreferrer"
+              style={{ color: "#fff" }}
             >
               Discord Channel RLTV
             </a>

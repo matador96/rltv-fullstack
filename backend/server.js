@@ -6,8 +6,10 @@ const routes = require("./routes");
 const config = require("./src/config/serverConfig.js");
 const parser = require("./src/modules/parser");
 const { getRankDistribution } = require("./src/modules/getRankDistribution");
-
 const app = express();
+
+require("dotenv").config();
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

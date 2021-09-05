@@ -13,14 +13,8 @@ function doRequest(url) {
 
 module.exports.parsePlayerRank = async (platform, gameid) => {
   try {
-    const url =
-      "https://api.tracker.gg/api/v2/rocket-league/standard/profile/" +
-      platform +
-      "/" +
-      gameid;
-
+    const url = process.env.API_PLAYER_RANK + platform + "/" + gameid;
     let body = await doRequest(url);
-
     const json = JSON.parse(body);
 
     return json;
@@ -32,11 +26,8 @@ module.exports.parsePlayerRank = async (platform, gameid) => {
 module.exports.parsePlayerRankHistory = async (trnId) => {
   try {
     // 256433
-    const url =
-      "https://api.tracker.gg/api/v1/rocket-league/player-history/mmr/" + trnId;
-
+    const url = process.env.API_PLAYER_RANK_HISTORY + trnId;
     let body = await doRequest(url);
-
     const json = JSON.parse(body);
 
     return json;
@@ -52,7 +43,7 @@ module.exports.parsePlayerRankPreviusSeason = async (
 ) => {
   try {
     const url =
-      "https://api.tracker.gg/api/v2/rocket-league/standard/profile/" +
+      process.env.API_PLAYER_RANK_PREVIUS_SEASON +
       platform +
       "/" +
       gameid +
