@@ -7,16 +7,6 @@
 }
 
 @font-face {
-  font-family: "Muller Bold";
-  src: url("./fonts/Muller-Bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Muller Regular";
-  src: url("./fonts/Muller-Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Bebas Neue Regular";
   src: url("./fonts/Bebas-Neue-Regular.ttf") format("truetype");
 }
@@ -31,11 +21,6 @@
   src: url("./fonts/Roboto-Bold.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Roboto Slab";
-  src: url("./fonts/Roboto-Slab.ttf") format("truetype");
-}
-
 .rltv-notification,
 .ant-popover-inner {
   background: #222222 !important;
@@ -45,6 +30,20 @@
   border-top: 1px #000 solid;
   border-bottom: 1px #000 solid;
   box-shadow: inset 2px 2px 20px #00000059;
+}
+
+.alert-header {
+  .ant-alert {
+    margin: 15px 0;
+    background: #101010c7;
+    border: 0 !important;
+    &-message {
+      color: #fff;
+    }
+    .anticon-close {
+      color: #fff;
+    }
+  }
 }
 
 .ant-select-dropdown {
@@ -165,9 +164,6 @@ body {
 }
 
 .favoritespage {
-  max-width: 1060px;
-  margin: auto;
-
   &-avatarblock {
     display: flex;
     width: 60px;
@@ -180,7 +176,6 @@ body {
   }
 }
 .table-favorites {
-
   .ant-table-tbody > tr.ant-table-row-level-1:hover > td {
     background: unset;
     display: none !important;
@@ -258,7 +253,7 @@ body {
         color: #fff;
       }
 
-      td.ant-table-cell:nth-child(3) {
+      td.ant-table-cell:nth-child(4) {
         text-align: left;
         width: 200px;
       }
@@ -277,14 +272,21 @@ body {
           content: counter(row-num) ". ";
         }
 
-        td:nth-child(4),
-        td:nth-child(6),
-        td:nth-child(8),
-        td:nth-child(10),
-        td:nth-child(12),
-        td:nth-child(14),
-        td:nth-child(16),
-        td:nth-child(18) {
+        td:nth-child(3) {
+          padding-left: 0;
+          svg:hover {
+            cursor: pointer;
+          }
+        }
+
+        td:nth-child(5),
+        td:nth-child(7),
+        td:nth-child(9),
+        td:nth-child(11),
+        td:nth-child(13),
+        td:nth-child(15),
+        td:nth-child(17),
+        td:nth-child(19) {
           padding: 0;
         }
       }
@@ -979,23 +981,7 @@ body {
       }
     }
   }
-  .navbarsecond {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
 
-    div {
-      margin: 0 34px;
-      padding: 0 10px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-
-      span {
-        margin: 0 9px;
-      }
-    }
-  }
   .titlehistory {
     text-transform: uppercase;
     font-weight: 400;
@@ -1352,9 +1338,9 @@ body {
       &-item {
         box-shadow: inset 2px 2px 20px #00000059;
         border-radius: 15px;
-        padding: 8px 5px;
+        padding: 8px 10px;
         margin: 0 9px;
-        width: 80px;
+        width: auto;
         height: 30px;
         text-align: center;
         display: flex;

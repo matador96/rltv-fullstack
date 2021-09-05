@@ -67,6 +67,10 @@ const getSeasonRewardImage = (url, nextReward) => {
 };
 
 const getOwnRankImage = (str) => {
+  if (!str) {
+    return "/images/rank/s4-0.png";
+  }
+
   str = str.replace(
     "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/",
     ""
@@ -122,10 +126,14 @@ const getPlayerRankObject = (player) => {
 
   for (let key in allPlaylistIds) {
     obj[allPlaylistIds[key]] = {
-      rating: getRankStats(player, allPlaylistIds[key]).stats.rating.value,
-      icon: getRankStats(player, allPlaylistIds[key]).stats.tier.metadata
-        .iconUrl,
-      name: getRankStats(player, allPlaylistIds[key]).stats.tier.metadata.name,
+      rating:
+        getRankStats(player, allPlaylistIds[key])?.stats?.rating?.value || 0,
+      icon:
+        getRankStats(player, allPlaylistIds[key])?.stats?.tier?.metadata
+          ?.iconUrl || "/images/rank/s4-0.png",
+      name:
+        getRankStats(player, allPlaylistIds[key])?.stats?.tier?.metadata
+          ?.name || "Unranked",
     };
   }
 
@@ -169,7 +177,7 @@ const getRankStats = (data, playlistId) => {
     }
   }
 
-  return rankRow;
+  return rankRow || { stats: { matchesPlayed: { value: 0 } } };
 };
 
 const getWorldPlace = (player) => {
@@ -193,7 +201,7 @@ const getWorldPlace = (player) => {
   }
 
   const averageWorldPlace = Math.round(sum / count);
-  return averageWorldPlace;
+  return averageWorldPlace || 'not found';
 };
 
 export {

@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { getRankDistribution } from "../api/all/other";
 import playlistIds from "../constant/playlistIds";
-// import tracked from "./../data/tracked";
+import { translate } from "react-switch-lang";
 
 class DistributionRanks extends React.Component {
   constructor(props) {
@@ -180,17 +180,11 @@ class DistributionRanks extends React.Component {
       this.setState({
         tracked: data,
       });
-    }
 
-    let sortedData = this.getPlaylistCounters(playlistIds.Duel);
-    this.setState({
-      series: [
-        {
-          name: "Percentage",
-          data: sortedData,
-        },
-      ],
-    });
+      setTimeout(() => {
+        this.updatePlaylistIds(playlistIds.Duel);
+      }, 500);
+    }
   }
 
   updatePlaylistIds(playlistId) {
@@ -246,6 +240,7 @@ class DistributionRanks extends React.Component {
   renderPlaylists() {
     let arr = [];
     const { currentPlaylistId } = this.state;
+    const { t } = this.props;
 
     for (let key in playlistIds) {
       if (key === "Unranked" || key === "tiers") {
@@ -263,7 +258,7 @@ class DistributionRanks extends React.Component {
             this.updatePlaylistIds(playlistIds[key]);
           }}
         >
-          {key}
+          {t("playlistsV1." + key)}
         </div>
       );
     }
@@ -271,13 +266,14 @@ class DistributionRanks extends React.Component {
   }
 
   render() {
+    const { options, series } = this.state;
     return (
       <>
         <div className="leaderboard-block_mods">{this.renderPlaylists()}</div>
         <div id="chart">
           <ReactApexChart
-            options={this.state.options}
-            series={this.state.series}
+            options={options}
+            series={series}
             type="bar"
             height={400}
           />
@@ -287,4 +283,4 @@ class DistributionRanks extends React.Component {
   }
 }
 
-export default DistributionRanks;
+export default translate(DistributionRanks);

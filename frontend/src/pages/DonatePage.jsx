@@ -1,5 +1,34 @@
 import React from "react";
 import { getDonateList } from "./../api/all/articles";
+
+const renderDonateList = (list) => {
+  let arr = [];
+
+  for (let key in list) {
+    let element = list[key];
+
+    let isUrl = false;
+
+    if (element.url) {
+      isUrl = true;
+    }
+
+    arr.push(
+      <div key={element.url}>
+        <span>{element.name}</span>
+        {isUrl ? (
+          <a href={element.url} alt={element.name}>
+            {element.text}
+          </a>
+        ) : (
+          <span>{element.text}</span>
+        )}
+      </div>
+    );
+  }
+
+  return arr;
+};
 class DonatePage extends React.Component {
   state = {
     donateText: "",
@@ -16,34 +45,6 @@ class DonatePage extends React.Component {
     });
   }
 
-  renderDonateList(list) {
-    let arr = [];
-
-    for (let key in list) {
-      let element = list[key];
-
-      let isUrl = false;
-
-      if (element.url) {
-        isUrl = true;
-      }
-
-      arr.push(
-        <div key={element.url}>
-          <span>{element.name}</span>
-          {isUrl ? (
-            <a href={element.url} alt={element.name}>
-              {element.text}
-            </a>
-          ) : (
-            <span>{element.text}</span>
-          )}
-        </div>
-      );
-    }
-
-    return arr;
-  }
   render() {
     const { donateText, donateList } = this.state;
 
@@ -53,7 +54,7 @@ class DonatePage extends React.Component {
         <div className="aboutmepage donatepage">
           <div className="aboutmepage-text">{donateText}</div>
           <div className="aboutmepage-socials">
-            {this.renderDonateList(donateList)}
+            {renderDonateList(donateList)}
           </div>
         </div>
       </div>

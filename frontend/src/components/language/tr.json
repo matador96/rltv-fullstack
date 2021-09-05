@@ -1,0 +1,101 @@
+﻿{
+  "menu": {
+    "main": "Ana",
+    "search": "Arama",
+    "leaderboards": "Skor tabloları",
+    "favorites": "Favoriler",
+    "obs": "OBS yerleşimi",
+    "help": "Yardım",
+    "distribution": "Dağıtım"
+  },
+  "pages": {
+    "distribution": {
+      "title": "Rating Distribution"
+    },
+    "main": {
+      "title": "Roket Ligi İstatistikleri",
+      "subtitle": "Ayrıntılı Roket Ligi İstatistiklerini ve Lider Tablolarını Kontrol Edin",
+      "searchingHistory": "Geçmişiniz",
+      "lastSearched": "Son aranan"
+    },
+    "player": {
+      "seasonRewardLevel": "Sezon Ödül Seviyesi",
+      "mini": {
+        "wins": "Galibiyetler",
+        "saves": "Kurtarışlar",
+        "goals": "Goller",
+        "assists": "Asistler",
+        "mvps": "Mvps",
+        "shots": "Şutlar",
+        "seasonMatches": "Sezon maçları",
+        "goalShot": "Gol/Şut",
+        "favoriteMode": "Favorit modu",
+        "worldPlace": "Dünya sıralaması",
+        "hoursPlayed": "Oynanan saat"
+      },
+      "ratingProgression": "Derecelendirmeİlerleme",
+      "competetive": "Rekabetçi",
+      "extraMods": "Extra Modlar",
+      "playlists": {
+        "Duel 1v1": "Düello 1v1",
+        "Doubles 2v2": "Çiftler 2v2",
+        "Standard 3v3": "Standart 3v3",
+        "Tournament ": "Turnuva",
+        "Hoops": "Hoops",
+        "Rumble": "Rumble",
+        "Dropshot": "Dropshot",
+        "Snowday": "Karlı Gün",
+        "Un-Ranked": "Derecesiz"
+      },
+      "division": "Küme",
+      "streak": {
+        "win": "Galibiyet Serisi",
+        "lose": "Seri Kaybetme"
+      },
+      "inTheworld": "Dünya",
+      "inGameTitles": "Oyun İçi Başlıklar",
+      "moreStats": "Daha fazla istatistik",
+      "placeInTheWorld": "Dünya sıralamasındaki yer"
+    }
+  },
+  "playlistsV1": {
+    "Standard": "Standart",
+    "Doubles": "Çiftli",
+    "Duel": "Düello",
+    "Unranked": "Derecesiz",
+    "Rumble": "Rumble",
+    "Dropshot": "Dropshot",
+    "Snowday": "Karlı Gün",
+    "Hoops": "Hoops",
+    "Tournament": "Turnuva"
+  },
+  "footer": {
+    "text1": "2021 © Rocket League, Psyonix'in tescilli ticari markasıdır. Bu resmi olmayan bir sitedir. Psyonix'e bağlı değilim. Psyonix, Rocket League ile ilgili her şeye sahip.",
+    "text2": "API için bana erişim izni verebilirseniz, Psyonix benimle iletişime geçin.",
+    "developed": "Matador tarafından Rocket League Topluluğu için geliştirildi"
+  },
+  "other": {
+    "words": {
+      "season": "Sezon",
+      "endsIn": "Biter",
+      "leftDays": "Kalan Günler",
+      "lastHour": "Son Saat",
+      "playersOnline": "Cevrimici Arkadaşlar",
+      "viewStats": "İstatistikleri Görüntüle",
+      "rating": "Rating",
+      "contactMe": "Bana ulaşın",
+      "aboutMe": "Benim hakkımda",
+      "updateRanks": "Sıralamaları güncelle",
+      "deletePlayer": "Oyuncuyu sil",
+      "cleanList": "Temizle listi",
+      "update": "Güncelleme",
+      "updating": "güncelleniyor",
+      "favorite": "Favori",
+      "unFavorite": "Favori olmasin"
+    },
+    "cookie": {
+      "text": "Çerezleri, aranan oyuncu geçmişini kaydetmek ve sayfa Sık Kullanılanları için web sitemizde kullanıyoruz.. Tıklayarak “Kabul ediyorum”, TÜM çerezlerin kullanımına izin veriyorsunuz.",
+      "accept": "Kabul ediyorum"
+    }
+  }
+}

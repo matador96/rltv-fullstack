@@ -5,13 +5,18 @@
     "leaderboards": "Топ игроков",
     "favorites": "Избранные",
     "obs": "OBS оверлей",
-    "help": "Помощь"
+    "help": "Помощь",
+    "distribution": "Распределние рангов"
   },
   "pages": {
+    "distribution": {
+      "title": "Распределние рангов"
+    },
     "main": {
       "title": "Статистика по Rocket League",
       "subtitle": "Подробная статистика игроков всего мира",
-      "searchingHistory": "История вашего поиска"
+      "searchingHistory": "История вашего поиска",
+      "lastSearched": "Искали недавно"
     },
     "player": {
       "seasonRewardLevel": "Сезонная награда",
@@ -19,6 +24,7 @@
         "wins": "Победы",
         "saves": "Спасений",
         "assists": "Пасы",
+        "goals": "Голов",
         "mvps": "МВП",
         "shots": "Удары",
         "seasonMatches": "Матчей в сезоне",
@@ -29,8 +35,9 @@
       },
       "ratingProgression": "Прогресс рейтинга",
       "competetive": "Соревновательный",
+      "extraMods": "Экстра моды",
       "playlists": {
-        "Duel 1v1": "Дуели 1v1",
+        "Duel 1v1": "Дуэли 1v1",
         "Doubles 2v2": "Дублеты 2v2",
         "Standard 3v3": "Триплеты 3v3",
         "Tournament ": "Турниры",
@@ -38,18 +45,29 @@
         "Rumble": "Рокот",
         "Dropshot": "Дропшот",
         "Snowday": "Снежный денек",
-        "Un-Ranked": "Параша"
+        "Un-Ranked": "Неранговый (паблик)"
       },
       "division": "Дивизион",
       "streak": {
         "win": "Винстрик",
         "lose": "Лузстрик"
       },
-      "extraMods": "Экстра моды",
       "inTheworld": "В мире",
       "inGameTitles": "Внутриигровые тайтлы",
-      "moreStats": "Больше статистики"
+      "moreStats": "Больше статистики",
+      "placeInTheWorld": "Место в мире"
     }
+  },
+  "playlistsV1": {
+    "Standard": "Триплеты",
+    "Doubles": "Дублеты",
+    "Duel": "Дуэли",
+    "Unranked": "Неранговый (паблик)",
+    "Rumble": "Рокот",
+    "Dropshot": "Дропшот",
+    "Snowday": "Снежный денек",
+    "Hoops": "Баскетбол",
+    "Tournament": "Турниры"
   },
   "footer": {
     "text1": "2021 © Rocket League is a registered trademark of Psyonix. Это неоффициальная страница. Я не сотрудничаю с Psyonix.",
@@ -66,7 +84,14 @@
       "viewStats": "Открыть профиль",
       "rating": "Рейтинг",
       "contactMe": "Связаться со мной",
-      "aboutMe": "Обо мне"
+      "aboutMe": "Обо мне",
+      "updateRanks": "Обновить ранги",
+      "deletePlayer": "Удалить игрока",
+      "cleanList": "Очистить список",
+      "update": "Обновить",
+      "updating": "Обновление",
+      "favorite": "В избранные",
+      "unFavorite": "Удалить из избранных"
     },
     "cookie": {
       "text": "Мы используем куки для сохранения избранных игроков, и также для других страниц.",

@@ -1,8 +1,8 @@
 import React from "react";
 import FavoritesList from "../components/FavoritesList";
 
-const FavoritesPage = (props) => (
-  <div className="content favoritespage">
+const FavoritesPage = () => (
+  <div className="favoritespage">
     <FavoritesList />
   </div>
 );

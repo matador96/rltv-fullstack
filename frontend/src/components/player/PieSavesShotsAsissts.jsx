@@ -4,7 +4,6 @@ import ReactApexChart from "react-apexcharts";
 class PieSavesShotsAsissts extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       series: props.data,
       options: {
@@ -58,10 +57,11 @@ class PieSavesShotsAsissts extends React.Component {
   }
 
   render() {
+    const { options, series } = this.state;
     return (
       <ReactApexChart
-        options={this.state.options}
-        series={this.state.series}
+        options={options}
+        series={series}
         type="pie"
         width={240}
         height={244}

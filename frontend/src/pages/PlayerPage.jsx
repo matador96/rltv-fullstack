@@ -62,11 +62,6 @@ class PlayerPage extends React.Component {
 
   async componentDidMount() {
     await this.getData();
-    const { gameId } = this.props.match.params;
-    const isFav = await isFavorite(gameId);
-    this.setState({
-      isFav,
-    });
   }
   async getData(firstUpdate = true) {
     const { platform, gameId } = this.props.match.params;
@@ -81,7 +76,7 @@ class PlayerPage extends React.Component {
       });
     }
 
-    await getPlayerData(platform, gameId).then((data) => {
+    await getPlayerData(platform, gameId).then(async (data) => {
       if (!data?.data?.data) {
         this.props.history.push("/");
 
@@ -102,9 +97,13 @@ class PlayerPage extends React.Component {
         this.state.playerData[0].platformInfo.avatarUrl,
         getAverageMMR(this.state.playerData[0])
       );
-      const isFav = isFavorite(gameId);
+      const isFav = await isFavorite(gameId);
       if (isFav) {
         this.updateFav(platform, gameId);
+
+        this.setState({
+          isFav: true,
+        });
       }
       return;
     });
@@ -213,10 +212,8 @@ class PlayerPage extends React.Component {
       previusSeasonData,
       loadPreviusRanks,
     } = this.state;
-    //  const { loading, isFav, updateData } = this.state;
-    const { platform, gameId } = this.props.match.params;
 
-    //const playerData = [player];
+    const { platform, gameId } = this.props.match.params;
 
     if (loading) {
       return (
@@ -225,6 +222,8 @@ class PlayerPage extends React.Component {
         </div>
       );
     }
+
+    console.log(playerData);
 
     return (
       <>
@@ -242,7 +241,9 @@ class PlayerPage extends React.Component {
                   size="small"
                   onClick={() => this.enterLoading()}
                 >
-                  {updateData ? "Updating" : "Update"}
+                  {updateData
+                    ? t("other.words.updating")
+                    : t("other.words.update")}
                 </Button>
                 <Button
                   type="link"
@@ -260,7 +261,9 @@ class PlayerPage extends React.Component {
                     );
                   }}
                 >
-                  {isFav ? "UnFavorite" : "Favorite"}
+                  {isFav
+                    ? t("other.words.unFavorite")
+                    : t("other.words.favorite")}
                 </Button>
 
                 {/*<Button

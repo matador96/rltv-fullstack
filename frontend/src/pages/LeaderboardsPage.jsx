@@ -1,5 +1,7 @@
 import React from "react";
 
+// todo maybe next updates...
+
 const getList = () => {
   const arr = [];
   for (let index = 1; index < 101; index++) {
@@ -53,7 +55,6 @@ const LeaderboardsPage = (props) => (
         <div className="leaderboard-block_list-items">{getList()}</div>
       </div>
     </div>
-    {/* <RoadMap/> */}
   </div>
 );
 
