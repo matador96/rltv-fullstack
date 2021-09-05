@@ -180,17 +180,11 @@ class DistributionRanks extends React.Component {
       this.setState({
         tracked: data,
       });
-    }
 
-    let sortedData = this.getPlaylistCounters(playlistIds.Duel);
-    this.setState({
-      series: [
-        {
-          name: "Percentage",
-          data: sortedData,
-        },
-      ],
-    });
+      setTimeout(() => {
+        this.updatePlaylistIds(playlistIds.Duel);
+      }, 500);
+    }
   }
 
   updatePlaylistIds(playlistId) {
@@ -272,13 +266,14 @@ class DistributionRanks extends React.Component {
   }
 
   render() {
+    const { options, series } = this.state;
     return (
       <>
         <div className="leaderboard-block_mods">{this.renderPlaylists()}</div>
         <div id="chart">
           <ReactApexChart
-            options={this.state.options}
-            series={this.state.series}
+            options={options}
+            series={series}
             type="bar"
             height={400}
           />

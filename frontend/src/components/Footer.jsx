@@ -66,7 +66,9 @@ class Footer extends React.Component {
       <div className="footer">
         <div className="footer-text">
           {t("footer.text1")}
-          <b style={{ marginLeft: "5px" }}>{t("footer.text2")}</b>
+          <b style={{ marginLeft: "5px" }}>
+            {t("footer.text2")} l use api of rocketleague.tracker.network (TRN).
+          </b>
           <div className="copyright">
             {t("footer.developed")}.
             <a
@@ -76,6 +78,16 @@ class Footer extends React.Component {
               rel="noreferrer"
             >
               <MailOutlined /> {t("other.words.contactMe")}
+            </a>
+          </div>
+          <div style={{ marginTop: "2px" }}>
+            <a
+              href="https://discord.gg/2cQTcA2eVy"
+              title="Discord Channel"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Discord Channel RLTV
             </a>
           </div>
         </div>

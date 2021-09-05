@@ -1,14 +1,11 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import { translate } from "react-switch-lang";
-import { cleanFavorites, getFavorites } from "../cookie/store";
+import { cleanFavorites, getFavorites, updateFavorite } from "../cookie/store";
 import { Button, Popconfirm } from "antd";
-import {
-  SyncOutlined,
-  DeleteOutlined,
-  UserDeleteOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined, UserDeleteOutlined } from "@ant-design/icons";
 import FavoritesTables from "./FavoritesTable";
+import { getPlayerRankObject } from "../helpers/player";
 
 class FavoritesList extends React.Component {
   constructor(props) {
@@ -16,6 +13,7 @@ class FavoritesList extends React.Component {
     this.state = {
       favoritesList: null,
       deleteOn: false,
+      updatingList: false,
     };
   }
 
@@ -36,6 +34,12 @@ class FavoritesList extends React.Component {
     });
     window.Navbar.updateFavCount();
   }
+
+  updateFav(platform, gameId, nickname, avatar, playerData) {
+    const ranks = getPlayerRankObject(playerData);
+    updateFavorite(platform, gameId, nickname, avatar, ranks);
+  }
+
   render() {
     const { favoritesList, deleteOn } = this.state;
     if (!favoritesList) {
@@ -53,10 +57,6 @@ class FavoritesList extends React.Component {
       <Fade>
         <div className="favorites-list">
           <div className="playerpage-buttons">
-            <Button type="link" icon={<SyncOutlined />} size="small">
-              {t("other.words.updateRanks")}
-            </Button>
-
             <Button
               type="link"
               icon={<UserDeleteOutlined />}

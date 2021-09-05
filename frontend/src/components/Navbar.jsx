@@ -4,7 +4,6 @@ import { Menu, Badge } from "antd";
 import { translate } from "react-switch-lang";
 import {
   SearchOutlined,
-  QuestionCircleOutlined,
   HeartOutlined,
   BarChartOutlined,
 } from "@ant-design/icons";
@@ -14,13 +13,7 @@ import { withRouter } from "react-router";
 import { getFavorites } from "../cookie/store";
 import SetTheme from "./SetTheme";
 
-const componentRoutes = [
-  "/",
-  "/leaderboards",
-  "/favorites",
-  "/help",
-  "/distribution",
-];
+const componentRoutes = ["/", "/leaderboards", "/favorites", "/distribution"];
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -100,13 +93,7 @@ class Navbar extends React.Component {
           >
             <Link to="/">{t("menu.search")}</Link>
           </Menu.Item>
-          {/* <Menu.Item
-            key="leaderboards"
-            icon={<ProjectOutlined />}
-            onClick={() => this.handleClickMenu("/leaderboards")}
-          >
-            <Link to="/leaderboards">{t("menu.leaderboards")}</Link>
-          </Menu.Item>*/}
+
           <Menu.Item
             key="favorites"
             icon={<HeartOutlined />}
@@ -138,19 +125,7 @@ class Navbar extends React.Component {
           selectedKeys={[current]}
           mode="horizontal"
           className="right-menu"
-        >
-          {/*
-          <Menu.Item key="overlay" icon={<FundProjectionScreenOutlined />}>
-            <Link to="/obs">{t("menu.obs")}</Link>
-          </Menu.Item>*/}
-          <Menu.Item
-            key="help"
-            icon={<QuestionCircleOutlined />}
-            onClick={() => this.handleClickMenu("/help")}
-          >
-            <Link to="/help">{t("menu.help")}</Link>
-          </Menu.Item>
-        </Menu>
+        ></Menu>
 
         <div className="navbar_theme">
           <SetTheme />
@@ -169,3 +144,23 @@ Navbar.propTypes = {
 };
 
 export default withRouter(translate(Navbar));
+
+/* <Menu.Item
+            key="leaderboards"
+            icon={<ProjectOutlined />}
+            onClick={() => this.handleClickMenu("/leaderboards")}
+          >
+            <Link to="/leaderboards">{t("menu.leaderboards")}</Link>
+          </Menu.Item>
+                    {/*
+          <Menu.Item key="overlay" icon={<FundProjectionScreenOutlined />}>
+            <Link to="/obs">{t("menu.obs")}</Link>
+          </Menu.Item>
+         <Menu.Item
+            key="help"
+            icon={<QuestionCircleOutlined />}
+            onClick={() => this.handleClickMenu("/help")}
+          >
+            <Link to="/help">{t("menu.help")}</Link>
+          </Menu.Item>
+*/

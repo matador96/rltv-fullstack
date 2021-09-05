@@ -2,7 +2,6 @@ import ErrorPage from "../pages/ErrorPage";
 import Main from "../pages/Main";
 import PlayerPage from "../pages/PlayerPage";
 import AboutMePage from "./../pages/AboutMePage";
-import HelpPage from "./../pages/HelpPage";
 import FavoritesPage from "../pages/Favorites";
 import RoadmapPage from "../pages/RoadmapPage";
 import BugReportPage from "../pages/BugReportPage";
@@ -65,12 +64,12 @@ const routes = [
   //   component: LeaderboardsPage,
   //   exact: true,
   // },
-  {
-    path: "/help",
-    layout: HelpPage,
-    component: HelpPage,
-    exact: true,
-  },
+  // {
+  //   path: "/help",
+  //   layout: HelpPage,
+  //   component: HelpPage,
+  //   exact: true,
+  // },
 
   {
     path: "/aboutme",

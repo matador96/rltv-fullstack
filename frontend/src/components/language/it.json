@@ -1,0 +1,101 @@
+{
+  "menu": {
+    "main": "Pagina iniziale",
+    "search": "Ricerca",
+    "leaderboards": "Migliori giocatori",
+    "favorites": "Preferiti",
+    "obs": "Sovrapposizione OBS",
+    "help": "Aiuto",
+    "distribution": "Distribuzione dei ranghi"
+  },
+  "pages": {
+    "distribution": {
+      "title": "Distribuzione dei ranghi"
+    },
+    "main": {
+      "title": "Statistiche Rocket League",
+      "subtitle": "Statistiche dettagliate dei giocatori di tutto il mondo",
+      "searchingHistory": "La tua cronologia delle ricerche",
+      "lastSearched": "Cercato di recente"
+    },
+    "player": {
+      "seasonRewardLevel": "Ricompensa stagionale",
+      "mini": {
+        "wins": "Vittorie",
+        "saves": "Parate",
+        "assists": "Passaggi",
+        "goals": "Gol",
+        "mvps": "MVP",
+        "shots": "Tiri",
+        "seasonMatches": "Partite (stagione)",
+        "goalShot": "Gol/Tiri",
+        "favoriteMode": "Modalità preferita",
+        "worldPlace": "Posto nel mondo",
+        "hoursPlayed": "Ore di gioco"
+      },
+      "ratingProgression": "Progresso in classifica",
+      "competetive": "Competitivo",
+      "extraMods": "Modalità Extra",
+      "playlists": {
+        "Duel 1v1": "Duello 1v1",
+        "Doubles 2v2": "Doppiette 2v2",
+        "Standard 3v3": "Standard 3v3",
+        "Tournament ": "Tornei",
+        "Hoops": "Canestro",
+        "Rumble": "Rissa",
+        "Dropshot": "DropShot",
+        "Snowday": "Snowday",
+        "Un-Ranked": "Casuale"
+      },
+      "division": "Divisione",
+      "streak": {
+        "win": "Serie di vittorie",
+        "lose": "Serie di sconfitte"
+      },
+      "inTheworld": "Nel mondo",
+      "inGameTitles": "Titoli di gioco",
+      "moreStats": "Altre statistiche",
+      "placeInTheWorld": "Posto nel mondo"
+    }
+  },
+  "playlistsV1": {
+    "Standard": "Standard",
+    "Doubles": "Doppiette",
+    "Duel": "Duello",
+    "Unranked": "Casuale",
+    "Rumble": "Rissa",
+    "Dropshot": "DropShot",
+    "Snowday": "Snowday",
+    "Hoops": "Canestro",
+    "Tournament": "Tornei"
+  },
+  "footer": {
+    "text1": "2021 © Rocket League è un marchio registrato di Psyonix. Questa è una pagina non ufficiale. Non sono affiliato con Psyonix.",
+    "text2": "Psyonix inviami un'e-mail se puoi darmi l'accesso all'API.",
+    "developed": "Sviluppato da Matador per la community di Rocket League"
+  },
+  "other": {
+    "words": {
+      "season": "Stagione",
+      "endsIn": "Finisce",
+      "leftDays": " tra {days} giorni",
+      "lastHour": "Nell'ultima ora",
+      "playersOnline": "Giocatori online",
+      "viewStats": "Apri profilo",
+      "rating": "Valutazione",
+      "contactMe": "Contattami",
+      "aboutMe": "Su di me",
+      "updateRanks": "Aggiorna i ranghi",
+      "deletePlayer": "Rimuovi giocatore",
+      "cleanList": "Cancella la lista",
+      "update": "Aggiornare",
+      "updating": "Aggiornamento",
+      "favorite": "Aggiungi ai preferiti",
+      "unFavorite": "Rimuovi dai preferiti"
+    },
+    "cookie": {
+      "text": "Utilizziamo i cookie per salvare i giocatori preferiti e anche per altre pagine.",
+      "accept": "Accetare"
+    }
+  }
+}

@@ -32,6 +32,20 @@
   box-shadow: inset 2px 2px 20px #00000059;
 }
 
+.alert-header {
+  .ant-alert {
+    margin: 15px 0;
+    background: #101010c7;
+    border: 0 !important;
+    &-message {
+      color: #fff;
+    }
+    .anticon-close {
+      color: #fff;
+    }
+  }
+}
+
 .ant-select-dropdown {
   box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 20px inset;
   background: rgba(0, 0, 0, 0.6);
@@ -239,7 +253,7 @@ body {
         color: #fff;
       }
 
-      td.ant-table-cell:nth-child(3) {
+      td.ant-table-cell:nth-child(4) {
         text-align: left;
         width: 200px;
       }
@@ -258,14 +272,21 @@ body {
           content: counter(row-num) ". ";
         }
 
-        td:nth-child(4),
-        td:nth-child(6),
-        td:nth-child(8),
-        td:nth-child(10),
-        td:nth-child(12),
-        td:nth-child(14),
-        td:nth-child(16),
-        td:nth-child(18) {
+        td:nth-child(3) {
+          padding-left: 0;
+          svg:hover {
+            cursor: pointer;
+          }
+        }
+
+        td:nth-child(5),
+        td:nth-child(7),
+        td:nth-child(9),
+        td:nth-child(11),
+        td:nth-child(13),
+        td:nth-child(15),
+        td:nth-child(17),
+        td:nth-child(19) {
           padding: 0;
         }
       }
@@ -1317,9 +1338,9 @@ body {
       &-item {
         box-shadow: inset 2px 2px 20px #00000059;
         border-radius: 15px;
-        padding: 8px 5px;
+        padding: 8px 10px;
         margin: 0 9px;
-        width: 80px;
+        width: auto;
         height: 30px;
         text-align: center;
         display: flex;

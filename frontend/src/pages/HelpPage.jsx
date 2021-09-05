@@ -1,5 +1,7 @@
 import React from "react";
 
-const HelpPage = () => <div className="content helppage">Help</div>;
+// todo maybe next updates...
+
+const HelpPage = () => <div className="helppage">Help</div>;
 
 export default HelpPage;

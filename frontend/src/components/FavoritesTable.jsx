@@ -1,4 +1,4 @@
-import { Table, Space } from "antd";
+import { Table, Space, Tooltip } from "antd";
 import React from "react";
 import { deleteFavorites, getFavorites } from "../cookie/store";
 import playlistIds from "./../constant/playlistIds";
@@ -6,17 +6,72 @@ import { Link } from "react-router-dom";
 import { getIconComponentPlatfrom, getPlatformAvatar } from "../helpers/other";
 import { getOwnRankImage } from "../helpers/player";
 import { CloseCircleOutlined } from "@ant-design/icons";
-
+import { SyncOutlined } from "@ant-design/icons";
+import { isFavorite, updateFavorite } from "../cookie/store";
+import { getPlayerData } from "./../api/all/player";
+import { getPlayerRankObject } from "../helpers/player";
+import openNotification from "./Notification";
 class FavoritesTables extends React.Component {
-  state = {
-    sortedInfo: null,
-    favoritesList: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortedInfo: null,
+      favoritesList: null,
+      loaders: {},
+    };
+
+    window.FavoritesTables = this;
+  }
 
   async componentDidMount() {
     await this.updateFavorites();
   }
+
+  async updateFav(platform, gameId, nickname, avatar, playerData) {
+    const ranks = getPlayerRankObject(playerData);
+    await updateFavorite(platform, gameId, nickname, avatar, ranks);
+    this.updateFavorites();
+  }
+
+  async updatePlayer(platform, gameId, nickname) {
+    const { loaders } = this.state;
+
+    this.setState(
+      {
+        loaders: { ...loaders, [gameId]: true },
+      },
+      () => {
+        this.updateFavorites();
+      }
+    );
+
+    await getPlayerData(platform, gameId).then(async (data) => {
+      this.setState({
+        loaders: { ...loaders, [gameId]: false },
+      });
+
+      if (!data?.data?.data) {
+        await deleteFavorites(gameId);
+        await this.updateFavorites();
+        openNotification("error", "Error", "Cant find player " + nickname);
+        return;
+      }
+
+      const playerData = data.data.data;
+
+      nickname = playerData.platformInfo.platformUserHandle;
+      const avatar = playerData.platformInfo.avatarUrl;
+
+      const isFav = await isFavorite(gameId);
+      if (isFav) {
+        await this.updateFav(platform, gameId, nickname, avatar, playerData);
+      }
+      return;
+    });
+  }
+
   async updateFavorites() {
+    const { loaders } = this.state;
     const items = await getFavorites();
     const data = [];
 
@@ -40,6 +95,19 @@ class FavoritesTables extends React.Component {
               </Link>
               {getIconComponentPlatfrom(element.platform)}
             </div>
+          ),
+
+          update: (
+            <Tooltip placement="bottom" title={"Update rank player"}>
+              <SyncOutlined
+                spin={loaders[key] ? loaders[key] : false}
+                style={{ fontSize: "16px", color: "#fff" }}
+                key={"update" + key}
+                onClick={() =>
+                  this.updatePlayer(element.platform, key, element.nickname)
+                }
+              />
+            </Tooltip>
           ),
 
           nickname: (
@@ -150,6 +218,12 @@ class FavoritesTables extends React.Component {
       },
 
       {
+        title: "",
+        dataIndex: "update",
+        key: "update",
+      },
+
+      {
         title: "Nickname",
         dataIndex: "nickname",
         key: "nickname",
@@ -256,6 +330,7 @@ class FavoritesTables extends React.Component {
     ];
 
     const { deleteMode } = this.props;
+
     return (
       <>
         <Space style={{ marginBottom: 45 }}>

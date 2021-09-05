@@ -27,7 +27,7 @@ const getWinStreakText = (text) => {
 const RankRow = (props) => {
   const { data, t, previusSeason } = props;
 
-  if (!data?.stats) {
+  if (!data?.stats?.tier?.metadata) {
     return <></>;
   }
 

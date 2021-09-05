@@ -3,6 +3,7 @@ const {
   siteStatus,
   season,
   seasons,
+  alertOnHeader,
 } = require("../constant/anyConfig");
 
 module.exports.getSiteConfigs = async (req, res) => {
@@ -12,6 +13,7 @@ module.exports.getSiteConfigs = async (req, res) => {
       siteStatus,
       season,
       seasons,
+      alertOnHeader,
     };
 
     const fileName = "./../json/anyData.json";

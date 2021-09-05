@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import CookieRule from "./components/CookieRule";
 import { getSiteConfigs } from "./api/all/other";
 import Closed from "./components/Closed";
+import AlertOnHeader from "./components/AlertOnHeader";
 
 class App extends React.Component {
   constructor(props) {
@@ -62,7 +63,10 @@ class App extends React.Component {
     return (
       <div className={"app " + currentTheme}>
         <Navbar />
-        <div className="content">{this.props.children}</div>
+        <div className="content">
+          <AlertOnHeader />
+          {this.props.children}
+        </div>
         <Footer />
         <CookieRule />
       </div>

@@ -10,6 +10,8 @@ import {
 } from "react-switch-lang";
 import en from "./en.json";
 import ru from "./ru.json";
+import tr from "./tr.json";
+import it from "./it.json";
 
 // Examples
 // {t("home.title")}
@@ -17,9 +19,9 @@ import ru from "./ru.json";
 // {t("hello", { name: "World" })}
 // {t("fallback")}
 
-const languages = ["en", "ru"];
+const languages = ["en", "ru", "tr", "it"];
 
-setTranslations({ en, ru });
+setTranslations({ en, ru, tr, it });
 setDefaultLanguage("en");
 
 class SomeComponent extends React.Component {
@@ -70,6 +72,20 @@ class SomeComponent extends React.Component {
           className={this.state.currentLang === "ru" && "dropdown-lang-active"}
         >
           RU
+        </Menu.Item>
+        <Menu.Item
+          key="tr"
+          onClick={this.handleSetLanguage("tr")}
+          className={this.state.currentLang === "tr" && "dropdown-lang-active"}
+        >
+          TR
+        </Menu.Item>
+        <Menu.Item
+          key="it"
+          onClick={this.handleSetLanguage("it")}
+          className={this.state.currentLang === "it" && "dropdown-lang-active"}
+        >
+          IT
         </Menu.Item>
       </Menu>
     );

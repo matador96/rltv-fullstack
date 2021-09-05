@@ -88,6 +88,16 @@ const getLeftDaysEndSeason = () => {
   }
 };
 
+const getAlertOnHeader = () => {
+  const configs = window.App.state.configs;
+  if (!configs) {
+    return {};
+  }
+  if (configs.alertOnHeader) {
+    return configs.alertOnHeader;
+  }
+};
+
 export {
   getIconComponentPlatfrom,
   getPlatformAvatar,
@@ -97,4 +107,5 @@ export {
   getLastHourOnline,
   getTrackedPlayers,
   getPreviusSeasonsList,
+  getAlertOnHeader,
 };

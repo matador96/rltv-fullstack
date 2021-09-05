@@ -3,6 +3,11 @@ module.exports = {
   timeLeftendOfSeason: 1637161200, // Unix
   season: 4,
   siteStatus: { closed: false, title: "HELP", text: "Why bro :(" },
+  alertOnHeader: {
+    enabled: false,
+    text: "Text",
+    type: "error",
+  },
   seasons: [
     { name: "Season 4 (18)", number: 18 },
     { name: "Season S3 (17)", number: 17 },
