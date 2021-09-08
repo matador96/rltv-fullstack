@@ -16,7 +16,7 @@ function doRequest(url) {
 module.exports.getPlayerSteamNameByUrl = async (url) => {
   try {
     const body = await doRequest(url + "/?xml=1");
-    const jsonObj = parser.parse(body);
+    const jsonObj = parser.parse(body, { parseTrueNumberOnly: true });
     return jsonObj.profile.customURL || jsonObj.profile.steamID64;
   } catch (e) {
     throw Error(e.message);

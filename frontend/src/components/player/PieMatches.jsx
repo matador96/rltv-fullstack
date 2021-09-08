@@ -31,7 +31,7 @@ class PieMatches extends React.Component {
           "#5e68ca",
           "#ca5e5e",
           "#5eacca",
-          "#ffeb00",
+          "#867f34",
         ],
         labels: ["1v1", "2v2", "3v3", "Tournament", "Unranked", "Extra Mods"],
         legend: {

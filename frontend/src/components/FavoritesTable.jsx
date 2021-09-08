@@ -9,7 +9,7 @@ import { CloseCircleOutlined } from "@ant-design/icons";
 import { SyncOutlined } from "@ant-design/icons";
 import { isFavorite, updateFavorite } from "../cookie/store";
 import { getPlayerData } from "./../api/all/player";
-import { getPlayerRankObject } from "../helpers/player";
+import { getPlayerRankObject, getSteamUrl } from "../helpers/player";
 import openNotification from "./Notification";
 class FavoritesTables extends React.Component {
   constructor(props) {
@@ -93,7 +93,18 @@ class FavoritesTables extends React.Component {
                   alt={element.nickname}
                 />
               </Link>
-              {getIconComponentPlatfrom(element.platform)}
+              {element.platform === "steam" ? (
+                <a
+                  href={getSteamUrl(key)}
+                  title={element.nickanem}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {getIconComponentPlatfrom(element.platform)}
+                </a>
+              ) : (
+                getIconComponentPlatfrom(element.platform)
+              )}
             </div>
           ),
 

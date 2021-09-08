@@ -180,7 +180,7 @@ class RatingProgressionGraphs extends React.Component {
     if (rankHistory?.dates && rankHistory?.history) {
       const { options } = this.state;
       options.xaxis.categories = rankHistory.dates;
-      const seriesCompetetive = [
+      const seriesCompetitive = [
         {
           name: "Duel",
           data: rankHistory.history[playlistIds.Duel],
@@ -202,7 +202,7 @@ class RatingProgressionGraphs extends React.Component {
       this.setState({
         show: true,
         options: options,
-        series: seriesCompetetive,
+        series: seriesCompetitive,
       });
     }
   }
@@ -298,7 +298,7 @@ class RatingProgressionGraphs extends React.Component {
             onChange={this.handleChange}
             value={selectedMod}
           >
-            <Option value="comp">Competetive</Option>
+            <Option value="comp">Competitive</Option>
             <Option value="extra">Extra Mods</Option>
             <Option value="unranked">Unranked</Option>
           </Select>

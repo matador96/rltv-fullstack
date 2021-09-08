@@ -5,6 +5,7 @@ import { translate } from "react-switch-lang";
 import {
   SearchOutlined,
   HeartOutlined,
+  MenuOutlined,
   BarChartOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -85,6 +86,8 @@ class Navbar extends React.Component {
           onClick={this.handleClick}
           selectedKeys={[current]}
           mode="horizontal"
+          overflowedIndicator={<MenuOutlined />}
+          className="navbar-menu"
         >
           <Menu.Item
             key="main"
@@ -116,10 +119,11 @@ class Navbar extends React.Component {
           </Menu.Item>
         </Menu>
 
-        <div className="navbar_logo">
+        <Link className="navbar_logo" to="/">
           RLTV
           <span>.TOP</span>
-        </div>
+        </Link>
+
         <Menu
           onClick={this.handleClick}
           selectedKeys={[current]}

@@ -6,11 +6,11 @@
     "favorites": "Избранные",
     "obs": "OBS оверлей",
     "help": "Помощь",
-    "distribution": "Распределние рангов"
+    "distribution": "Распределение рангов"
   },
   "pages": {
     "distribution": {
-      "title": "Распределние рангов"
+      "title": "Распределение рангов"
     },
     "main": {
       "title": "Статистика по Rocket League",
@@ -34,14 +34,14 @@
         "hoursPlayed": "Наиграно часов"
       },
       "ratingProgression": "Прогресс рейтинга",
-      "competetive": "Соревновательный",
+      "competitive": "Соревновательный",
       "extraMods": "Экстра моды",
       "playlists": {
         "Duel 1v1": "Дуэли 1v1",
         "Doubles 2v2": "Дублеты 2v2",
-        "Standard 3v3": "Триплеты 3v3",
+        "Standard 3v3": "Стандарт 3v3",
         "Tournament ": "Турниры",
-        "Hoops": "Баскетбол",
+        "Hoops": "Кольца",
         "Rumble": "Рокот",
         "Dropshot": "Дропшот",
         "Snowday": "Снежный денек",
@@ -59,14 +59,14 @@
     }
   },
   "playlistsV1": {
-    "Standard": "Триплеты",
+    "Standard": "Стандарт",
     "Doubles": "Дублеты",
     "Duel": "Дуэли",
     "Unranked": "Неранговый (паблик)",
     "Rumble": "Рокот",
     "Dropshot": "Дропшот",
     "Snowday": "Снежный денек",
-    "Hoops": "Баскетбол",
+    "Hoops": "Кольца",
     "Tournament": "Турниры"
   },
   "footer": {

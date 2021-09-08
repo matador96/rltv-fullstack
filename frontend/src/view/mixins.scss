@@ -6,6 +6,17 @@
       }
     }
 
+    .navbar-menu {
+      .ant-menu-overflow-item-rest {
+        .ant-menu-submenu-title {
+          border: 1px $colorFirst solid;
+        }
+        svg {
+          color: $colorFirst;
+        }
+      }
+    }
+
     .ant-table-column-sorter-up.active,
     .ant-table-column-sorter-down.active {
       color: $colorFirst;

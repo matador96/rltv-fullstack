@@ -49,3 +49,39 @@ module.exports.getRankDistribution = async (req, res) => {
     return res.status(200).json({ status: 200, message: e.message });
   }
 };
+
+module.exports.getSitemap = async (req, res) => {
+  try {
+    res.write('<?xml version="1.0" encoding="UTF-8"?>');
+    res.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+
+    res.write(
+      "<url><loc>https://rltv.top</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>"
+    );
+
+    res.write(
+      "<url><loc>https://rltv.top/roadmap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>"
+    );
+    res.write(
+      "<url><loc>https://rltv.top/bugreport</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>"
+    );
+    res.write(
+      "<url><loc>https://rltv.top/donate</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>"
+    );
+    res.write(
+      "<url><loc>https://rltv.top/aboutme</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>"
+    );
+    res.write(
+      "<url><loc>https://rltv.top/distribution</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>"
+    );
+    res.write(
+      "<url><loc>https://rltv.top/favorites</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>"
+    );
+
+    // priority 1, weekly monthly daily
+
+    res.end("</urlset>");
+  } catch (e) {
+    return res.status(200).json({ status: 200, message: e.message });
+  }
+};

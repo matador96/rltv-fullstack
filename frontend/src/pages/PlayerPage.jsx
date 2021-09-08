@@ -28,8 +28,10 @@ import {
   getPlayerRankObject,
   getRankStats,
   getSeasonRewardImage,
+  getSeasonRealReward,
   getSumMatches,
   getWorldPlace,
+  getSteamUrl,
 } from "../helpers/player";
 import playlistIds from "../constant/playlistIds";
 import openNotification from "../components/Notification";
@@ -37,7 +39,7 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-const competetiveRanks = [
+const competitiveRanks = [
   playlistIds.Duel,
   playlistIds.Doubles,
   playlistIds.Standard,
@@ -50,6 +52,7 @@ const extraRanks = [
   playlistIds.Dropshot,
   playlistIds.Snowday,
 ];
+
 class PlayerPage extends React.Component {
   state = {
     loadings: [],
@@ -223,8 +226,6 @@ class PlayerPage extends React.Component {
       );
     }
 
-    console.log(playerData);
-
     return (
       <>
         {playerData.map((player) => (
@@ -284,7 +285,18 @@ class PlayerPage extends React.Component {
                   className="first-row__left"
                 >
                   <div className="first-row__left___platformicon">
-                    {getIconComponentPlatfrom(platform)}
+                    {platform === "steam" ? (
+                      <a
+                        href={getSteamUrl(gameId)}
+                        title={player.platformInfo.platformUserHandle}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {getIconComponentPlatfrom(platform)}
+                      </a>
+                    ) : (
+                      getIconComponentPlatfrom(platform)
+                    )}
                   </div>
                   <img
                     src={
@@ -301,10 +313,13 @@ class PlayerPage extends React.Component {
                     </div>
                     <div className="first-row__left___profile___reward">
                       <div className="first-row__left___profile___reward____title">
-                        {
-                          player.segments[0].stats.seasonRewardLevel.metadata
-                            .rankName
-                        }
+                        {player.segments[0].stats.seasonRewardWins.value > 0
+                          ? getSeasonRealReward(
+                              player.segments[0].stats.seasonRewardLevel
+                                .metadata.rankName
+                            )
+                          : player.segments[0].stats.seasonRewardLevel.metadata
+                              .rankName}
 
                         <img
                           src={
@@ -522,7 +537,7 @@ class PlayerPage extends React.Component {
                 </Col>
                 <Col span={14} className="third-row__right">
                   <div className="third-row__right__title title-ratingprogressiongraphs">
-                    {t("pages.player.competetive")}
+                    {t("pages.player.competitive")}
 
                     <Select
                       defaultValue={player.metadata.currentSeason.toString()}
@@ -533,7 +548,7 @@ class PlayerPage extends React.Component {
                     </Select>
                   </div>
 
-                  {competetiveRanks.map((rank) => (
+                  {competitiveRanks.map((rank) => (
                     <div
                       className="third-row__right__rank"
                       key={player.platformInfo.platformUserHandle + rank}
