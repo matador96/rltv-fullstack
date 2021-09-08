@@ -40,6 +40,11 @@ const Main = (props) => {
   }
 
   async function handleClick() {
+    if (text.length === 0) {
+      openNotification("error", "Error", "Pls enter gamid");
+      return;
+    }
+
     setExit(true);
 
     let steamName;
@@ -49,6 +54,7 @@ const Main = (props) => {
         if (!data) {
           steamName = null;
         }
+
         return data;
       });
     }

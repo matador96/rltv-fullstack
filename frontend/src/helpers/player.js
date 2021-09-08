@@ -39,6 +39,28 @@ const getAverageMMR = (player) => {
   return averageMMR;
 };
 
+const getSeasonRealReward = (currentLevel) => {
+  // USELESS
+
+  const ranks = [
+    "Unranked",
+    "Bronze",
+    "Silver",
+    "Gold",
+    "Platinum",
+    "Diamond",
+    "Champion",
+    "Grand Champion",
+    "Supersonic Legend",
+  ];
+  const findRank = ranks.indexOf(currentLevel);
+  if (findRank !== -1 && currentLevel !== "Supersonic Legend") {
+    return ranks[findRank + 1];
+  }
+
+  return currentLevel;
+};
+
 const getSeasonRewardImage = (url, nextReward) => {
   if (!nextReward) {
     return getOwnRankImage(url);
@@ -105,6 +127,7 @@ const getFavoriteMode = (player) => {
   favMode = favMode.replace("Standard", "");
   favMode = favMode.replace("Doubles", "");
   favMode = favMode.replace("Duel", "");
+  favMode = favMode.replace("Matches", "");
 
   return favMode;
 };
@@ -180,6 +203,16 @@ const getRankStats = (data, playlistId) => {
   return rankRow || { stats: { matchesPlayed: { value: 0 } } };
 };
 
+const getSteamUrl = (text) => {
+  let id = parseInt(text, 10);
+
+  if (id > 0) {
+    return "https://steamcommunity.com/profiles/" + text; // id
+  }
+
+  return "https://steamcommunity.com/id/" + text; // custom
+};
+
 const getWorldPlace = (player) => {
   const standardPlaylistId = 13;
   const doublesPlaylistId = 11;
@@ -201,7 +234,7 @@ const getWorldPlace = (player) => {
   }
 
   const averageWorldPlace = Math.round(sum / count);
-  return averageWorldPlace || 'not found';
+  return averageWorldPlace || "not found";
 };
 
 export {
@@ -214,4 +247,6 @@ export {
   getOwnRankImage,
   getPieStats,
   getSeasonRewardImage,
+  getSteamUrl,
+  getSeasonRealReward,
 };

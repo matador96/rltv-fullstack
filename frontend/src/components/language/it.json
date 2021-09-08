@@ -29,13 +29,13 @@
         "shots": "Tiri",
         "seasonMatches": "Partite (stagione)",
         "goalShot": "Gol/Tiri",
-        "favoriteMode": "Modalità preferita",
+        "favoriteMode": "ModalitA' preferita",
         "worldPlace": "Posto nel mondo",
         "hoursPlayed": "Ore di gioco"
       },
       "ratingProgression": "Progresso in classifica",
-      "competetive": "Competitivo",
-      "extraMods": "Modalità Extra",
+      "competitive": "Competitivo",
+      "extraMods": "ModalitA' Extra",
       "playlists": {
         "Duel 1v1": "Duello 1v1",
         "Doubles 2v2": "Doppiette 2v2",

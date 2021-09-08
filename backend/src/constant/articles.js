@@ -1,16 +1,14 @@
 module.exports = {
   help: "",
-  aboutMe: `I’m a web developer from Krasnoyarsk, Russia. I enjoy creating beautifully designed, intuitive and functional websites. I describe myself as a passionate developer who loves coding, open source, and the web platform. 
-    My main experience is in fullstack development but I also have a passion for design. Given that producing a modern website requires the combination of design, server technology, and the layer that users interacts with, I believe having experience in both design and development allows for making the most optimal user experiences.`,
-  bugReportText: "If you notice a bug, please let me know.",
+  aboutMe: `I’m a web developer from Krasnoyarsk, Russia. I enjoy creating beautifully designed, intuitive and functional websites. I describe myself as a passionate developer who loves coding, open-source, and the web platform. My main experience is in full-stack development but I also have a passion for design. Producing a modern website requires a combination of the things such as design, server technology, and layer that users interact with, I believe having experience in both design and development allows making the most optimal user experiences.`,
   bugReportList: [
     {
-      name: "Send message on Discord to channel #bugs",
+      name: "You can send a message on our Discord server in #bugs channel:",
       text: "https://discord.gg/QHZnanqwT6",
       url: "https://discord.gg/QHZnanqwT6",
     },
     {
-      name: "or send to email",
+      name: "or contact me via email:",
       text: "atubrah@mail.ru",
     },
   ],
@@ -18,35 +16,36 @@ module.exports = {
   roadmapList: [
     {
       title: "Developed",
-      text: "Project is runing. Waiting bugs",
+      text: "Project is testing. Searching for bugs.",
+    },
+    {
+      title: "First day Patch",
+      text: "Fix bugs",
       current: true,
     },
     {
-      title: "Fix bugs",
-      text: "And should be add news, more stats and obs overlay for streams.",
+      title: "Bug fixes and new additions",
+      text: `Fixing known bugs and trying to add a few more things such as "News, more stats and OBS overlay for streamers"`,
     },
     {
       title: "Update",
-      text: "Should be add some new functionality, like player compares, live tracker, themes.",
+      text: "Adding new functionality. In plans: players comparison, live tracker, themes.",
     },
     {
       title: "Update",
-      text: "Adding player reputations, integrations with twitch, youtube.",
+      text: "Adding player's reputation, twitch & youtube integrations",
     },
     {
-      title: "Fix bugs, waiting some comunity ideas",
-      text: "If you give good idea, l can try make :)",
+      title: "Bug fixes + Waiting for some community ideas",
+      text: "Fixing any found bugs. And if you have an idea, please let me know, and if it's a good one I will try to create/implement it.",
     },
     {
       title: "Update",
-      text: "Create team pages, and ranking system like on hltv.",
+      text: "Creating teams' pages and ranked system (as on HLTV).",
     },
     { title: "Mobile app", text: "IOS and Android" },
   ],
-  donateText: `Thank you for your interest in the RLTV project. We sincerely hope that the site is useful for you.
-  If you have a desire to support our project, there are several ways to do this.  
-  You can leave links to our site in your fi pages or groups. Then more people will learn about the project, and we really hope that it will bring more benefits to other people.
-    If you have the desire and opportunity to support our project with money, we will be very grateful for it. The funds will be used to pay for the server for the site, for the further development of the project. You can transfer any amount that will be comfortable for you.`,
+  donateText: `Thank you for taking your time and checking out the RLTV project. We sincerely hope that the site was and will be useful for you. If you would like to support our project, there are several ways to do that. You can share the links to our site on your social media. So more people can find out about our project, and we really hope that it's gonna be useful to other players. If you feel like you want to support our project financially, we will appreciate it. The funds will be used for the server's payment of this site and for the further development of the project. You can support us with any amount that you are comfortable with.`,
   donateList: [
     {
       url: "https://patreon.com/matador_rl",

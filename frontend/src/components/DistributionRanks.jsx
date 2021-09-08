@@ -11,12 +11,7 @@ class DistributionRanks extends React.Component {
     this.state = {
       tracked: {},
       currentPlaylistId: playlistIds.Duel,
-      series: [
-        {
-          name: "Percentage",
-          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        },
-      ],
+      series: null,
       options: {
         responsive: [
           {
@@ -181,9 +176,7 @@ class DistributionRanks extends React.Component {
         tracked: data,
       });
 
-      setTimeout(() => {
-        this.updatePlaylistIds(playlistIds.Duel);
-      }, 500);
+      this.updatePlaylistIds(playlistIds.Duel);
     }
   }
 
@@ -267,6 +260,9 @@ class DistributionRanks extends React.Component {
 
   render() {
     const { options, series } = this.state;
+    if (!series) {
+      return <></>;
+    }
     return (
       <>
         <div className="leaderboard-block_mods">{this.renderPlaylists()}</div>

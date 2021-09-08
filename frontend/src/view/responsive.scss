@@ -66,7 +66,6 @@
     }
 
     .navbar {
-      margin-top: 10px;
       justify-content: left;
       .ant-menu-light {
         padding: 20px 10px;
@@ -74,6 +73,7 @@
       }
       .navbar_logo {
         top: 12px;
+        padding-top: 20px;
         font-size: 22px;
       }
     }
@@ -688,7 +688,7 @@
           span {
             margin-top: 9px;
             font-size: 13px;
-            line-height: 0.6;
+            line-height: 1;
           }
         }
       }

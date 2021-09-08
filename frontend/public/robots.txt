@@ -1,3 +1,2 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+Host: https://rltv.top
+Sitemap: https://rltv.top/api/sitemap

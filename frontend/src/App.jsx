@@ -61,14 +61,16 @@ class App extends React.Component {
     }
 
     return (
-      <div className={"app " + currentTheme}>
-        <Navbar />
-        <div className="content">
-          <AlertOnHeader />
-          {this.props.children}
+      <div className="main">
+        <div className={"app " + currentTheme}>
+          <Navbar />
+          <div className="content">
+            <AlertOnHeader />
+            {this.props.children}
+          </div>
+          <Footer />
+          <CookieRule />
         </div>
-        <Footer />
-        <CookieRule />
       </div>
     );
   }
