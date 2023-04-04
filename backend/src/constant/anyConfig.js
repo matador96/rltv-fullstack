@@ -1,7 +1,7 @@
 module.exports = {
   PLATFORMS: ["psn", "xbl", "steam", "epic", "switch"],
   timeLeftendOfSeason: 1686247200, // Unix
-  season: 4,
+  season: 10,
   siteStatus: { closed: false, title: "HELP", text: "Why bro :(" },
   alertOnHeader: {
     enabled: false,
