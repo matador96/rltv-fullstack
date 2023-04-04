@@ -1,2 +1,2 @@
-Host: https://rltv.top
-Sitemap: https://rltv.top/api/sitemap
+Host: http://rank.rocketeers.ru
+Sitemap: http://rank.rocketeers.ru/api/sitemap

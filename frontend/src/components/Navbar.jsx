@@ -120,8 +120,8 @@ class Navbar extends React.Component {
         </Menu>
 
         <Link className="navbar_logo" to="/">
-          RLTV
-          <span>.TOP</span>
+          RANK
+          <span>Rocketeers</span>
         </Link>
 
         <Menu
