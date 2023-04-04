@@ -1,27 +1,15 @@
 const cheerio = require("cheerio");
-
-function doRequest(url) {
-  return new Promise(function (resolve, reject) {
-    const request = require("request");
-    request(url, function (error, res, body) {
-      if (!error && res.statusCode == 200) {
-        resolve(body);
-      } else {
-        reject(error);
-      }
-    });
-  });
-}
+const { doRequestWithPupeteer } = require("./pupeteerRequest");
 
 module.exports.parseOnlinePlayers = async () => {
   try {
     const url = "https://rocketleague.tracker.network/";
 
-    let body = await doRequest(url);
+    const body = await doRequestWithPupeteer(url);
 
     const $ = cheerio.load(body);
 
-    let text = $("div.counters > .counter:nth-child(2) .value").text();
+    let text = $("div.counter .subject .value").text();
     text = text.replace(",", "");
 
     let playersCount = parseInt(text, 10);

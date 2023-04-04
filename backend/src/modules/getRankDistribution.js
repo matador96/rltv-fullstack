@@ -1,22 +1,11 @@
-function doRequest(url) {
-  return new Promise(function (resolve, reject) {
-    const request = require("request");
-    request(url, function (error, res, body) {
-      if (!error && res.statusCode == 200) {
-        resolve(body);
-      } else {
-        reject(error);
-      }
-    });
-  });
-}
+const { doRequestWithPupeteer } = require("./pupeteerRequest");
 
 module.exports.getRankDistribution = async () => {
   try {
     const url = process.env.API_PLAYER_RANK_DISTRIBUTION;
-    let body = await doRequest(url);
-
-    const json = JSON.parse(body);
+    const json = await doRequestWithPupeteer(url).then((res) =>
+      JSON.parse(res)
+    );
     const fs = require("fs");
 
     if (!json) {

@@ -50,7 +50,6 @@ class AboutMePage extends React.Component {
       <div className="content">
         <h1>About Me </h1>
         <div className="aboutmepage">
-          <img src="/images/profile.jpg" alt="meow" />
           <div className="aboutmepage-nickname">Matador</div>
           <div className="aboutmepage-text">{data.aboutMe}</div>
           <div className="aboutmepage-socials">

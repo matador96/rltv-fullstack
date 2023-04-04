@@ -11,6 +11,11 @@ import { isFavorite, updateFavorite } from "../cookie/store";
 import { getPlayerData } from "./../api/all/player";
 import { getPlayerRankObject, getSteamUrl } from "../helpers/player";
 import openNotification from "./Notification";
+
+function propertyReturner(el, key, propertyName) {
+  return el?.ranks?.[key]?.[propertyName] || "";
+}
+
 class FavoritesTables extends React.Component {
   constructor(props) {
     super(props);
@@ -130,53 +135,67 @@ class FavoritesTables extends React.Component {
 
           "1v1Icon": (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Duel].icon)}
-              alt={element.ranks[playlistIds.Duel].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Duel, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Duel, "name")}
             />
           ),
-          "1v1": element.ranks[playlistIds.Duel].rating,
+          "1v1": propertyReturner(element, playlistIds.Duel, "rating"),
           "2v2Icon": (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Doubles].icon)}
-              alt={element.ranks[playlistIds.Doubles].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Doubles, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Doubles, "name")}
             />
           ),
-          "2v2": element.ranks[playlistIds.Doubles].rating,
+          "2v2": propertyReturner(element, playlistIds.Doubles, "rating"),
           "3v3Icon": (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Standard].icon)}
-              alt={element.ranks[playlistIds.Standard].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Standard, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Standard, "name")}
             />
           ),
-          "3v3": element.ranks[playlistIds.Standard].rating,
+          "3v3": propertyReturner(element, playlistIds.Standard, "rating"),
           dropshotIcon: (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Dropshot].icon)}
-              alt={element.ranks[playlistIds.Dropshot].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Dropshot, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Dropshot, "name")}
             />
           ),
-          dropshot: element.ranks[playlistIds.Dropshot].rating,
+          dropshot: propertyReturner(element, playlistIds.Dropshot, "rating"),
           snowdayIcon: (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Snowday].icon)}
-              alt={element.ranks[playlistIds.Snowday].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Snowday, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Snowday, "name")}
             />
           ),
-          snowday: element.ranks[playlistIds.Snowday].rating,
+          snowday: propertyReturner(element, playlistIds.Snowday, "rating"),
           hoopsIcon: (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Hoops].icon)}
-              alt={element.ranks[playlistIds.Hoops].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Hoops, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Hoops, "name")}
             />
           ),
-          hoops: element.ranks[playlistIds.Hoops].rating,
+          hoops: propertyReturner(element, playlistIds.Hoops, "rating"),
           rumbleIcon: (
             <img
-              src={getOwnRankImage(element.ranks[playlistIds.Rumble].icon)}
-              alt={element.ranks[playlistIds.Rumble].name}
+              src={getOwnRankImage(
+                propertyReturner(element, playlistIds.Rumble, "icon")
+              )}
+              alt={propertyReturner(element, playlistIds.Rumble, "name")}
             />
           ),
-          rumble: element.ranks[playlistIds.Rumble].rating,
+          rumble: propertyReturner(element, playlistIds.Rumble, "rating"),
           delete: (
             <div
               className="delete-row"
